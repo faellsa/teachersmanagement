@@ -1,0 +1,39 @@
+QMenu {
+	 background-color: rgb(255,255,255); /* 白色 */
+	 border: 1px solid black;
+ }
+
+QMenu::item {
+	 background-color: transparent;
+	 height: 50px;
+ }
+
+QMenu::item:selected {
+	 background-color: rgb(200,200,200); /* 灰色 */
+ }
+
+QMenuBar {
+	   background-color: rgb(29, 108, 167);  /* 深蓝 */
+ }
+
+QMenuBar::item {
+	 spacing: 10px; /* 菜单栏项目空间大小 */
+	 padding: 6px 15px;
+	 font-size:12px;
+	 background: transparent;
+ }
+
+QMenuBar::item:selected { /* 当用键盘或者鼠标选择的时候的背景 */
+	 background: rgb(255,255,255);
+ }
+
+QMenuBar::item:pressed {
+	  background:(255,255,255);
+
+ }
+
+QStatusBar {
+	background: rgb(29, 108, 167);
+ }
+
+
