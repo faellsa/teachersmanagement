@@ -35,18 +35,21 @@ void MainWindow::setupWidgets()
 
 	m_InfoManage = new QTreeWidgetItem(QStringList(tr("教师信息管理")));
 	m_AddTeacherInfo = new QTreeWidgetItem(QStringList(tr("增加记录")));
-	m_DeleteTeacherInfo = new QTreeWidgetItem(QStringList(tr("删除记录")));
-	m_ModifyTeacherInfo = new QTreeWidgetItem(QStringList(tr("信息修改")));
+	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")));
+	//m_DeleteTeacherInfo = new QTreeWidgetItem(QStringList(tr("删除记录")));
+	//m_ModifyTeacherInfo = new QTreeWidgetItem(QStringList(tr("信息修改")));
 	m_InfoManage->addChild(m_AddTeacherInfo);
-	m_InfoManage->addChild(m_DeleteTeacherInfo);
-	m_InfoManage->addChild(m_ModifyTeacherInfo);
+	m_InfoManage->addChild(m_InfoQuery);
 
-	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("教师信息查询")));
+	//m_InfoManage->addChild(m_DeleteTeacherInfo);
+	//m_InfoManage->addChild(m_ModifyTeacherInfo);
+
+
 	//m_Unknown = new QTreeWidgetItem(QStringList(tr("未知")));
 
 	m_FunctionTree->insertTopLevelItem(0,m_SystemManage);
 	m_FunctionTree->insertTopLevelItem(1,m_InfoManage);
-	m_FunctionTree->insertTopLevelItem(2,m_InfoQuery);
+	//m_FunctionTree->insertTopLevelItem(2,m_InfoQuery);
 
 	m_DialogFactory = DialogFactory::instance();
 	m_DialogFactory->setContentsMargins(0,0,0,0);

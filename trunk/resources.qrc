@@ -1,5 +1,9 @@
 <RCC>
     <qresource prefix="/">
+        <file>image/login.png</file>
+        <file>image/login.jpg</file>
+        <file>image/title.png</file>
+        <file>image/menubar.png</file>
         <file>mystyle.qss</file>
     </qresource>
 </RCC>
