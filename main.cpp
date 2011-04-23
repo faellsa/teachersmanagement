@@ -14,7 +14,9 @@ int main(int argc, char *argv[])
 
 	QFile myfile(":/mystyle.qss");
 	if(myfile.open(QFile::ReadOnly))
-		qDebug()<<"right";
-	a.setStyleSheet(myfile.readAll());
+	{
+		//qDebug()<<"right";
+		a.setStyleSheet(myfile.readAll());
+	}
     return a.exec();
 }
