@@ -23,7 +23,7 @@ private:
 
 private slots:
 	void onLoginButton();
-	void onCancleButton();
+	void onExitButton();
 };
 
 #endif // LOGINDIALOG_H

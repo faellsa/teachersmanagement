@@ -17,7 +17,7 @@ LoginDialog::~LoginDialog()
 void LoginDialog::setupSignals()
 {
 	connect(ui->m_Login,SIGNAL(clicked()),this,SLOT(onLoginButton()));
-	connect(ui->m_Cancle,SIGNAL(clicked()),this,SLOT(onCancleButton()));
+	connect(ui->m_Exit,SIGNAL(clicked()),this,SLOT(onExitButton()));
 }
 
 void LoginDialog::onLoginButton()
@@ -28,8 +28,8 @@ void LoginDialog::onLoginButton()
 
 }
 
-void LoginDialog::onCancleButton()
+void LoginDialog::onExitButton()
 {
-
+	::exit(0);
 }
 
