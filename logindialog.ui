@@ -457,7 +457,7 @@
     </rect>
    </property>
   </widget>
-  <widget class="QPushButton" name="m_Cancle">
+  <widget class="QPushButton" name="m_Exit">
    <property name="geometry">
     <rect>
      <x>650</x>

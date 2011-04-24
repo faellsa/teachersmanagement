@@ -47,9 +47,6 @@
       <property name="autoFillBackground">
        <bool>false</bool>
       </property>
-      <property name="styleSheet">
-       <string notr="true">background-image: url(:/image/title.png);</string>
-      </property>
       <property name="title">
        <string/>
       </property>
