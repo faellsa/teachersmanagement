@@ -24,6 +24,9 @@ void AddTeacherInfoDialog::setupSignals()
 	connect(ui->m_Page3Pre,SIGNAL(clicked()),this,SLOT(showPoliticalInfoPage()));
 	connect(ui->m_Page3Next,SIGNAL(clicked()),this,SLOT(showPersonalExperiencePage()));
 
+	connect(ui->m_Page4Pre,SIGNAL(clicked()),this,SLOT(showWorkInfoPage()));
+	connect(ui->m_Page4Next,SIGNAL(clicked()),this,SLOT(showRemarkPage()));
+
 	connect(ui->m_Page5Pre,SIGNAL(clicked()),this,SLOT(showPersonalExperiencePage()));
 }
 

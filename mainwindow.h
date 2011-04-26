@@ -7,6 +7,7 @@
 #include <QScrollArea>
 #include "dialogfactory.h"
 #include "datacenter.h"
+#include <QSystemTrayIcon>
 
 namespace Ui {
     class MainWindow;
@@ -46,15 +47,19 @@ private:
 
 	const static int m_UserManagementType = 1001;
 	const static int m_AddTeacherInfoType = 1002;
-	const static int m_PersonalInfoType = 1002;
+	const static int m_InfoQueryType = 1003;
 
 	DataCenter *m_DataCenter;
 
-
+	QSystemTrayIcon *m_TrayIcon;
 
 private slots:
 	void onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int);
 	void exit();
+	void onTrayIconActived(QSystemTrayIcon::ActivationReason activationReason);
+
+protected:
+	void closeEvent(QCloseEvent *event);
 };
 
 #endif // MAINWINDOW_H

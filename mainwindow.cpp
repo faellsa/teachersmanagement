@@ -2,9 +2,11 @@
 #include "ui_mainwindow.h"
 #include "usermanagementdialog.h"
 #include <QMessageBox>
+#include <QCloseEvent>
 #include "databaseexception.h"
 //#include "personalinfodialog.h"
 #include "addteacherinfodialog.h"
+#include "infoquerydialog.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -33,7 +35,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::setupWidgets()
 {
-	resize(1000,700);
+	resize(1000,750);
 
 	ui->groupBox->setStyleSheet("background-image: url(:/image/title.png);"
 								"border:rgb(103,207,255)");
@@ -65,7 +67,7 @@ void MainWindow::setupWidgets()
 //	m_AddTeacherInfo->addChild(m_PersonalExperience);
 //	m_AddTeacherInfo->addChild(m_Remark);
 
-	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")));
+	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")),m_InfoQueryType);
 
 	m_InfoManage->addChild(m_AddTeacherInfo);
 	m_InfoManage->addChild(m_InfoQuery);
@@ -79,6 +81,23 @@ void MainWindow::setupWidgets()
 	m_HSplitter->addWidget(m_FunctionTree);
 	m_HSplitter->addWidget(m_DialogFactory);
 	m_HSplitter->setContentsMargins(0,0,0,0);
+
+	m_TrayIcon = new QSystemTrayIcon(QIcon(":/image/tray.ico"), this);
+	m_TrayIcon->show();
+	connect(m_TrayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
+			this, SLOT(onTrayIconActived(QSystemTrayIcon::ActivationReason)) );
+
+	QMenu* trayIconMenu = new QMenu(this);
+
+	QAction* showWindowsAction = new QAction(tr("显示主窗口"), trayIconMenu);
+	QAction* exitAction = new QAction(tr("退出"), trayIconMenu);
+	connect(showWindowsAction, SIGNAL(triggered()), this, SLOT(showNormal()));
+	connect(exitAction, SIGNAL(triggered()), this, SLOT(exit()));
+
+	trayIconMenu->addAction(showWindowsAction);
+	trayIconMenu->addSeparator();
+	trayIconMenu->addAction(exitAction);
+	m_TrayIcon->setContextMenu(trayIconMenu);
 }
 
 void MainWindow::setupSignals()
@@ -96,8 +115,11 @@ void MainWindow::onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int)
 	if(treeWidgetItem->type() == m_UserManagementType)
 		m_ChildDialogBase = new UserManagementDialog();
 
-	else if(treeWidgetItem->type() == m_PersonalInfoType)
+	else if(treeWidgetItem->type() == m_AddTeacherInfoType)
 		m_ChildDialogBase = new AddTeacherInfoDialog();
+
+	else if(treeWidgetItem->type() == m_InfoQueryType)
+		m_ChildDialogBase = new InfoQueryDialog();
 
 	if(m_currentChildDialog != m_ChildDialogBase && m_ChildDialogBase != NULL)
 		m_DialogFactory->updateDialog(m_ChildDialogBase);
@@ -110,3 +132,18 @@ void MainWindow::exit()
 	QApplication::exit(0);
 }
 
+void MainWindow::closeEvent(QCloseEvent *event)
+{
+	if(m_TrayIcon->isVisible())
+	{
+		hide();
+		m_TrayIcon->showMessage("", tr("系统已经最小化到托盘当中"));
+		event->ignore();
+	}
+}
+
+void MainWindow::onTrayIconActived(QSystemTrayIcon::ActivationReason activationReason)
+{
+	if(activationReason == QSystemTrayIcon::DoubleClick)
+		showNormal();
+}
