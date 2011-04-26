@@ -27,7 +27,7 @@ QMenuBar::item {
 
 QMenuBar::item:selected { /* 当用键盘或者鼠标选择的时候的背景 */
 	 background: rgb(255,255,255);
-	 color:rgb(0,0,05);
+	 color:rgb(0,0,0);
  }
 
 QMenuBar::item:pressed {

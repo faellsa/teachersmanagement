@@ -19,7 +19,8 @@ SOURCES += main.cpp\
     datacenter.cpp \
     databaseexception.cpp \
     personalinfodialog.cpp \
-    addteacherinfodialog.cpp
+    addteacherinfodialog.cpp \
+    infoquerydialog.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -29,13 +30,15 @@ HEADERS  += mainwindow.h \
     datacenter.h \
     databaseexception.h \
     personalinfodialog.h \
-    addteacherinfodialog.h
+    addteacherinfodialog.h \
+    infoquerydialog.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
     usermanagementdialog.ui \
     personalinfodialog.ui \
-    addteacherinfodialog.ui
+    addteacherinfodialog.ui \
+    infoquerydialog.ui
 
 RESOURCES += \
     resources.qrc
