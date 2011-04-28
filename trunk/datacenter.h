@@ -5,6 +5,8 @@
 #include <QSqlDatabase>
 #include <QObject>
 
+class TeachersInfoTable;
+
 class DataCenter
 {
 public:
@@ -14,6 +16,13 @@ public:
 								const QString &username = "TeachersMagement",
 								const QString &password = "123456",
 								const QString &driverType = "QODBC");
+	TeachersInfoTable *techersInfoTableInstance();
+
+	QSqlDatabase getDatabase() const
+	{
+		return m_Database;
+	}
+
 private:
 	/*
 	  DataCenter£º¹¹Ôìº¯Êý
@@ -40,9 +49,9 @@ private:
 		return m_Database.isOpen();
 	}
 
-private:
 	QSqlDatabase m_Database;
 	static DataCenter *m_DataCenter;
+	static TeachersInfoTable *m_TeachersInfoTable;
 
 };
 

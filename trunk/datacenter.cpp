@@ -3,8 +3,10 @@
 #include <QSqlError>
 #include <QMessageBox>
 #include "databaseexception.h"
+#include "teachersinfotable.h"
 
 DataCenter *DataCenter::m_DataCenter = NULL;
+TeachersInfoTable *DataCenter::m_TeachersInfoTable = NULL;
 
 DataCenter::DataCenter(const QString &hostName,int tcpPort,
 					   const QString &dbName,
@@ -37,4 +39,12 @@ DataCenter *DataCenter::instance(const QString &hostName,
 									  dbName,username,
 									  password,driverType);
 		return m_DataCenter;
+}
+
+TeachersInfoTable *DataCenter::techersInfoTableInstance()
+{
+	if(m_TeachersInfoTable == NULL)
+		m_TeachersInfoTable = new TeachersInfoTable(*this);
+
+	return m_TeachersInfoTable;
 }

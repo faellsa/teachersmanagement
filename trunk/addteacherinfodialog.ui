@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>742</width>
-    <height>541</height>
+    <width>640</width>
+    <height>518</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -43,7 +43,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit">
+           <widget class="QLineEdit" name="m_Name">
             <property name="maximumSize">
              <size>
               <width>150</width>
@@ -77,7 +77,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox">
+           <widget class="QComboBox" name="m_Sex">
             <item>
              <property name="text">
               <string>男</string>
@@ -115,7 +115,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_3">
+           <widget class="QLineEdit" name="m_Nationality">
             <property name="maximumSize">
              <size>
               <width>50</width>
@@ -162,7 +162,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit"/>
+           <widget class="QDateEdit" name="m_Birthday"/>
           </item>
           <item>
            <spacer name="horizontalSpacer_5">
@@ -189,7 +189,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_4">
+           <widget class="QLineEdit" name="m_Origin">
             <property name="maximumSize">
              <size>
               <width>100</width>
@@ -223,7 +223,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_2"/>
+           <widget class="QLineEdit" name="m_ID"/>
           </item>
          </layout>
         </item>
@@ -267,7 +267,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_2">
+           <widget class="QComboBox" name="m_PoliticsStatus">
             <property name="maxVisibleItems">
              <number>20</number>
             </property>
@@ -341,7 +341,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_2"/>
+           <widget class="QDateEdit" name="m_PartyTime"/>
           </item>
          </layout>
         </item>
@@ -394,7 +394,7 @@
       <widget class="QWidget" name="layoutWidget_5">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>420</x>
          <y>439</y>
          <width>164</width>
          <height>25</height>
@@ -435,7 +435,7 @@
         <rect>
          <x>60</x>
          <y>150</y>
-         <width>571</width>
+         <width>481</width>
          <height>16</height>
         </rect>
        </property>
@@ -446,9 +446,9 @@
       <widget class="Line" name="line_4">
        <property name="geometry">
         <rect>
-         <x>58</x>
+         <x>61</x>
          <y>281</y>
-         <width>571</width>
+         <width>481</width>
          <height>16</height>
         </rect>
        </property>
@@ -476,7 +476,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_7">
+           <widget class="QComboBox" name="m_Department">
             <property name="sizePolicy">
              <sizepolicy hsizetype="MinimumExpanding" vsizetype="Fixed">
               <horstretch>0</horstretch>
@@ -581,7 +581,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_3">
+           <widget class="QComboBox" name="m_Category">
             <item>
              <property name="text">
               <string>教师</string>
@@ -629,7 +629,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_9"/>
+           <widget class="QLineEdit" name="m_PersonnelNo"/>
           </item>
           <item>
            <widget class="QLabel" name="label_34">
@@ -663,7 +663,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_10">
+           <widget class="QLineEdit" name="m_CurrentPositionTime">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -690,7 +690,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_16">
+           <widget class="QLineEdit" name="m_TitleAndRank">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -706,7 +706,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_12">
+           <widget class="QDateEdit" name="m_TitleTime">
             <property name="minimumSize">
              <size>
               <width>65</width>
@@ -761,26 +761,12 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_8"/>
+           <widget class="QLineEdit" name="m_AdministrationParttime"/>
           </item>
          </layout>
         </item>
         <item>
          <layout class="QHBoxLayout" name="horizontalLayout_30">
-          <item>
-           <widget class="QLabel" name="label_38">
-            <property name="text">
-             <string>其他兼职：</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="lineEdit_14"/>
-          </item>
-         </layout>
-        </item>
-        <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_16">
           <item>
            <widget class="QLabel" name="label_35">
             <property name="text">
@@ -789,7 +775,21 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_6"/>
+           <widget class="QLineEdit" name="m_AcademicPartTime"/>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_16">
+          <item>
+           <widget class="QLabel" name="label_38">
+            <property name="text">
+             <string>其他兼职：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="m_OtherParttime"/>
           </item>
          </layout>
         </item>
@@ -817,7 +817,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QComboBox" name="comboBox_4">
+             <widget class="QComboBox" name="m_GraduateTrain">
               <item>
                <property name="text">
                 <string>无</string>
@@ -860,7 +860,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_15">
+             <widget class="QLineEdit" name="m_TeacherTime">
               <property name="maximumSize">
                <size>
                 <width>60</width>
@@ -896,7 +896,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_7"/>
+           <widget class="QLineEdit" name="m_PersonnelPlan"/>
           </item>
          </layout>
         </item>
@@ -910,7 +910,7 @@
       <widget class="QWidget" name="layoutWidget_7">
        <property name="geometry">
         <rect>
-         <x>470</x>
+         <x>420</x>
          <y>439</y>
          <width>164</width>
          <height>25</height>
@@ -979,7 +979,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_10">
+           <widget class="QDateEdit" name="m_FirstWorkTime">
             <property name="displayFormat">
              <string>yyyy/M</string>
             </property>
@@ -1010,7 +1010,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_5"/>
+           <widget class="QLineEdit" name="m_FirstWorkPlace"/>
           </item>
          </layout>
         </item>
@@ -1024,7 +1024,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_11">
+           <widget class="QDateEdit" name="m_WhuTime">
             <property name="displayFormat">
              <string>yyyy/M</string>
             </property>
@@ -1052,7 +1052,7 @@
         <rect>
          <x>61</x>
          <y>312</y>
-         <width>571</width>
+         <width>391</width>
          <height>91</height>
         </rect>
        </property>
@@ -1071,7 +1071,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QTextEdit" name="textEdit">
+         <widget class="QTextEdit" name="m_BeAbroadExperience">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
             <horstretch>0</horstretch>
@@ -1093,7 +1093,7 @@
         <rect>
          <x>61</x>
          <y>149</y>
-         <width>571</width>
+         <width>421</width>
          <height>16</height>
         </rect>
        </property>
@@ -1106,7 +1106,7 @@
         <rect>
          <x>61</x>
          <y>290</y>
-         <width>571</width>
+         <width>421</width>
          <height>16</height>
         </rect>
        </property>
@@ -1119,7 +1119,7 @@
         <rect>
          <x>60</x>
          <y>40</y>
-         <width>578</width>
+         <width>401</width>
          <height>101</height>
         </rect>
        </property>
@@ -1151,28 +1151,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_16">
-                <property name="text">
-                 <string>从</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QDateEdit" name="dateEdit_3">
-                <property name="displayFormat">
-                 <string>yyyy/M</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_17">
-                <property name="text">
-                 <string>到</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QDateEdit" name="dateEdit_4">
+               <widget class="QDateEdit" name="m_BachelorTime">
                 <property name="displayFormat">
                  <string>yyyy/M</string>
                 </property>
@@ -1203,28 +1182,7 @@
                </widget>
               </item>
               <item>
-               <widget class="QLabel" name="label_19">
-                <property name="text">
-                 <string>从</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QDateEdit" name="dateEdit_6">
-                <property name="displayFormat">
-                 <string>yyyy/M</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QLabel" name="label_18">
-                <property name="text">
-                 <string>到</string>
-                </property>
-               </widget>
-              </item>
-              <item>
-               <widget class="QDateEdit" name="dateEdit_7">
+               <widget class="QDateEdit" name="m_MasterTime">
                 <property name="displayFormat">
                  <string>yyyy/M</string>
                 </property>
@@ -1244,28 +1202,7 @@
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_28">
-              <property name="text">
-               <string>从</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QDateEdit" name="dateEdit_8">
-              <property name="displayFormat">
-               <string>yyyy/M</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QLabel" name="label_20">
-              <property name="text">
-               <string>到</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QDateEdit" name="dateEdit_9">
+             <widget class="QDateEdit" name="m_DoctorTime">
               <property name="displayFormat">
                <string>yyyy/M</string>
               </property>
@@ -1354,7 +1291,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="dateEdit_5"/>
+           <widget class="QDateEdit" name="m_RetirementTime"/>
           </item>
           <item>
            <spacer name="horizontalSpacer_16">
@@ -1381,7 +1318,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_11"/>
+           <widget class="QLineEdit" name="m_Email"/>
           </item>
          </layout>
         </item>
@@ -1395,7 +1332,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_12"/>
+           <widget class="QLineEdit" name="m_OfficePhone"/>
           </item>
          </layout>
         </item>
@@ -1409,7 +1346,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit_13"/>
+           <widget class="QLineEdit" name="m_MobilePhone"/>
           </item>
          </layout>
         </item>
