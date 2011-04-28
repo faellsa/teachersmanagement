@@ -20,7 +20,8 @@ SOURCES += main.cpp\
     databaseexception.cpp \
     personalinfodialog.cpp \
     addteacherinfodialog.cpp \
-    infoquerydialog.cpp
+    infoquerydialog.cpp \
+    teachersinfotable.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -31,7 +32,8 @@ HEADERS  += mainwindow.h \
     databaseexception.h \
     personalinfodialog.h \
     addteacherinfodialog.h \
-    infoquerydialog.h
+    infoquerydialog.h \
+    teachersinfotable.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \

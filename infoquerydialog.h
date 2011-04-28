@@ -19,6 +19,10 @@ private:
     Ui::InfoQueryDialog *ui;
 
 	void setupWidgets();
+	void setupSignals();
+
+private slots:
+	void showConditionWidget(QString conditionType);
 };
 
 #endif // INFOQUERYDIALOG_H

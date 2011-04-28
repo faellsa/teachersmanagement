@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) :
 
 	try{
 		m_DataCenter = DataCenter::instance();
+		m_DataCenter->techersInfoTableInstance();
 	}catch(DatabaseException& e)
 	{
 		QMessageBox::critical(this, tr("严重错误！"), tr("连接数据库出错！\n")+e.errorMsg());
