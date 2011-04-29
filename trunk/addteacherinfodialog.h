@@ -25,6 +25,7 @@ private slots:
 	void showWorkInfoPage();
 	void showPersonalExperiencePage();
 	void showRemarkPage();
+	void saveInfo();
 };
 
 #endif // ADDTEACHERINFODIALOG_H

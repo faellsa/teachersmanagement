@@ -44,10 +44,11 @@ class TeachersInfoTable
 {
 public:
 	TeachersInfoTable(const DataCenter& dataCenter);
+	bool newTeacherInfo(const TeacherInfo &teacherInfo);
 
 private:
 	void createTable();
-	bool newTeacherInfo(const TeacherInfo &teacherInfo);
+
 	QSqlDatabase m_Database;
 };
 
