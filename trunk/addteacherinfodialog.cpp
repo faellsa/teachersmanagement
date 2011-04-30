@@ -105,5 +105,4 @@ void AddTeacherInfoDialog::saveInfo()
 	{
 		QMessageBox::information(this,tr(" ß∞‹"),tr("±£¥Ê ß∞‹"));
 	}
-
 }

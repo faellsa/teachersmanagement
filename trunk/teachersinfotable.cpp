@@ -62,7 +62,6 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 								"'%20','%21','%22','%23','%24','%25','%26','%27','%28',"
 								"'%29','%30','%31')")
 			.arg(teacherInfo.name)
-			.arg(teacherInfo.name)
 			.arg(teacherInfo.sex)
 			.arg(teacherInfo.nationality)
 			.arg(teacherInfo.origin)
@@ -81,6 +80,7 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 			.arg(teacherInfo.administrationParttime)
 			.arg(teacherInfo.otherParttime)
 			.arg(teacherInfo.graduateTrain)
+			.arg(teacherInfo.teacherTime)
 			.arg(teacherInfo.bachelorTime)
 			.arg(teacherInfo.masterTime)
 			.arg(teacherInfo.doctorTime)
@@ -92,7 +92,6 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 			.arg(teacherInfo.email)
 			.arg(teacherInfo.officePhone)
 			.arg(teacherInfo.mobilePhone);
-
 
 	QSqlQuery sqlQuery(m_Database);
 	if(!sqlQuery.exec(insertSql))
