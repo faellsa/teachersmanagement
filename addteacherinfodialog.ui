@@ -162,7 +162,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="m_Birthday"/>
+           <widget class="QDateEdit" name="m_Birthday">
+            <property name="displayFormat">
+             <string>yyyy/M</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_5">
@@ -341,7 +345,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="m_PartyTime"/>
+           <widget class="QDateEdit" name="m_PartyTime">
+            <property name="displayFormat">
+             <string>yyyy/M</string>
+            </property>
+           </widget>
           </item>
          </layout>
         </item>
@@ -1285,7 +1293,11 @@
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="m_RetirementTime"/>
+           <widget class="QDateEdit" name="m_RetirementTime">
+            <property name="displayFormat">
+             <string>yyyy/M</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer_16">

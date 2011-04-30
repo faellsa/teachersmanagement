@@ -23,6 +23,7 @@ private:
 
 private slots:
 	void showConditionWidget(QString conditionType);
+	void onQueryButton();
 };
 
 #endif // INFOQUERYDIALOG_H

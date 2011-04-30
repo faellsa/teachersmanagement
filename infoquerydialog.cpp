@@ -2,6 +2,7 @@
 #include "ui_infoquerydialog.h"
 #include <QComboBox>
 #include <QDebug>
+#include <QMessageBox>
 
 InfoQueryDialog::InfoQueryDialog(QDialog *parent) :
 		ChildDialogBase(parent),
@@ -49,6 +50,8 @@ void InfoQueryDialog::setupSignals()
 			this,SLOT(showConditionWidget(QString)));
 	connect(ui->m_ConditionType5,SIGNAL(currentIndexChanged(QString)),
 			this,SLOT(showConditionWidget(QString)));
+
+	connect(ui->m_Query,SIGNAL(clicked()),this,SLOT(onQueryButton()));
 }
 
 void InfoQueryDialog::showConditionWidget(QString conditionType)
@@ -111,4 +114,59 @@ void InfoQueryDialog::showConditionWidget(QString conditionType)
 //			ui->m_ConditionComboBox5->show();
 //		}
 //	}
+}
+
+void InfoQueryDialog::onQueryButton()
+{
+	if(ui->m_ConditionType1->isVisible())
+	{
+		QString conditionType1 = ui->m_ConditionType1->currentText();
+		if(conditionType1 == NULL)
+		{
+			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
+			return;
+		}
+	}
+
+	if(ui->m_ConditionType2->isVisible())
+	{
+		QString conditionType2 = ui->m_ConditionType2->currentText();
+		if(conditionType2 == NULL)
+		{
+			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
+			return;
+		}
+	}
+
+	if(ui->m_ConditionType3->isVisible())
+	{
+		QString conditionType3 = ui->m_ConditionType3->currentText();
+		if(conditionType3 == NULL)
+		{
+			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
+			return;
+		}
+	}
+
+	if(ui->m_ConditionType4->isVisible())
+	{
+		QString conditionType4 = ui->m_ConditionType4->currentText();
+		if(conditionType4 == NULL)
+		{
+			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
+			return;
+		}
+	}
+
+	if(ui->m_ConditionType5->isVisible())
+	{
+		QString conditionType5 = ui->m_ConditionType5->currentText();
+		if(conditionType5 == NULL)
+		{
+			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
+			return;
+		}
+	}
+
+
 }
