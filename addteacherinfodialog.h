@@ -2,6 +2,7 @@
 #define ADDTEACHERINFODIALOG_H
 
 #include "childdialogbase.h"
+#include "teachersinfotable.h"
 
 namespace Ui {
     class AddTeacherInfoDialog;
@@ -12,8 +13,10 @@ class AddTeacherInfoDialog : public ChildDialogBase
     Q_OBJECT
 
 public:
-	explicit AddTeacherInfoDialog(QDialog *parent = 0);
-    ~AddTeacherInfoDialog();
+	AddTeacherInfoDialog(QDialog *parent = 0);
+	~AddTeacherInfoDialog();
+	void setOnlyRead();
+	void setTeachersInfo(TeacherInfo &teacherInfo);
 
 private:
     Ui::AddTeacherInfoDialog *ui;
