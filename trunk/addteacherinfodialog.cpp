@@ -1,6 +1,5 @@
 #include "addteacherinfodialog.h"
 #include "ui_addteacherinfodialog.h"
-#include "teachersinfotable.h"
 #include "datacenter.h"
 #include <QMessageBox>
 
@@ -105,4 +104,52 @@ void AddTeacherInfoDialog::saveInfo()
 	{
 		QMessageBox::information(this,tr("Ê§°Ü"),tr("±£´æÊ§°Ü"));
 	}
+}
+
+void AddTeacherInfoDialog::setTeachersInfo(TeacherInfo &teacherInfo)
+{
+	ui->m_Name->setText(teacherInfo.name);
+	teacherInfo.sex == "ÄÐ" ?
+			ui->m_Sex->setCurrentIndex(0):ui->m_Sex->setCurrentIndex(1);
+	ui->m_Nationality->setText(teacherInfo.nationality);
+	ui->m_Origin->setText(teacherInfo.origin);
+	ui->m_ID->setText(teacherInfo.id);
+	ui->m_Birthday->setDate(QDate::fromString(teacherInfo.birthday,QString("yyyy/M")));
+
+
+	//teacherInfo.politicsStatus = ui->m_PoliticsStatus->currentText();
+
+
+	ui->m_PartyTime->setDate(QDate::fromString(teacherInfo.partyTime,QString("yyyy/M")));
+
+
+	//teacherInfo.department = ui->m_Department->currentText();
+
+
+	//teacherInfo.category = ui->m_Category->currentText();
+
+
+	ui->m_PersonnelNo->setText(teacherInfo.personnelNo);
+	ui->m_TitleAndRank->setText(teacherInfo.titleAndRank);
+	ui->m_TitleTime->setDate(QDate::fromString(teacherInfo.titleTime,QString("yyyy/M")));
+	ui->m_CurrentPositionTime->setDate(QDate::fromString(teacherInfo.currentPositionTime,QString("yyyy/M")));
+	ui->m_AcademicPartTime->setText(teacherInfo.academicParttime);
+	ui->m_PersonnelPlan->setText(teacherInfo.personnelPlan);
+	ui->m_AdministrationParttime->setText(teacherInfo.administrationParttime);
+	ui->m_OtherParttime->setText(teacherInfo.otherParttime);
+
+	//teacherInfo.graduateTrain = ui->m_GraduateTrain->currentText();
+
+	ui->m_TeacherTime->setDate(QDate::fromString(teacherInfo.teacherTime,QString("yyyy/M")));
+	ui->m_BachelorTime->setDate(QDate::fromString(teacherInfo.bachelorTime,QString("yyyy/M")));
+	ui->m_MasterTime->setDate(QDate::fromString(teacherInfo.masterTime,QString("yyyy/M")));
+	ui->m_DoctorTime->setDate(QDate::fromString(teacherInfo.doctorTime,QString("yyyy/M")));
+	ui->m_FirstWorkTime->setDate(QDate::fromString(teacherInfo.firstWorkTime,QString("yyyy/M")));
+	ui->m_FirstWorkPlace->setText(teacherInfo.firstWorkPlace);
+	ui->m_WhuTime->setDate(QDate::fromString(teacherInfo.whuTime,QString("yyyy/M")));
+	ui->m_BeAbroadExperience->setText(teacherInfo.beAbroadExperience);
+	ui->m_RetirementTime->setDate(QDate::fromString(teacherInfo.retirementTime,QString("yyyy/M")));
+	ui->m_Email->setText(teacherInfo.email);
+	ui->m_OfficePhone->setText(teacherInfo.officePhone);
+	ui->m_MobilePhone->setText(teacherInfo.mobilePhone);
 }
