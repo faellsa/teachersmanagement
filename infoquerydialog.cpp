@@ -8,6 +8,12 @@
 #include "dialogfactory.h"
 #include <QSqlQuery>
 #include <QSqlRecord>
+#include <datacenter.h>
+#include <QVector>
+#include <QFileDialog>
+#include "exportexcelobject.h"
+#include <QProgressDialog>
+#include <QCheckBox>
 
 InfoQueryDialog::InfoQueryDialog(QDialog *parent) :
 		ChildDialogBase(parent),
@@ -46,7 +52,8 @@ void InfoQueryDialog::setupWidgets()
 
 	m_Model = new QSqlQueryModel(ui->m_QueryResult);
 	ui->m_QueryResult->setModel(m_Model);
-	m_Model->setQuery(tr("SELECT 人事号,姓名,所在专业,类别 from TeachersInfo WHERE 1 = 2"));
+	m_Model->setQuery(tr("SELECT * from TeachersInfo WHERE 1 = 2"));
+	isShowDetail(ui->m_ShowDetail->checkState());
 
 	m_DetailAction = new QAction(tr("详情"), this);
 	m_DeleteAction = new QAction(tr("删除"),this);
@@ -77,6 +84,24 @@ void InfoQueryDialog::setupSignals()
 	connect(ui->m_Query,SIGNAL(clicked()),this,SLOT(onQueryButton()));
 	connect(m_DeleteAction,SIGNAL(triggered()),this,SLOT(onDeleteAction()));
 	connect(m_DetailAction,SIGNAL(triggered()),this,SLOT(onDetailAction()));
+
+	connect(ui->m_Page1Next,SIGNAL(clicked()),this,SLOT(showPoliticalInfoPage()));
+
+	connect(ui->m_Page2Pre,SIGNAL(clicked()),this,SLOT(showPersonalInfoPage()));
+	connect(ui->m_Page2Next,SIGNAL(clicked()),this,SLOT(showWorkInfoPage()));
+
+	connect(ui->m_Page3Pre,SIGNAL(clicked()),this,SLOT(showPoliticalInfoPage()));
+	connect(ui->m_Page3Next,SIGNAL(clicked()),this,SLOT(showPersonalExperiencePage()));
+
+	connect(ui->m_Page4Pre,SIGNAL(clicked()),this,SLOT(showWorkInfoPage()));
+	connect(ui->m_Page4Next,SIGNAL(clicked()),this,SLOT(showRemarkPage()));
+
+	connect(ui->m_Page5Pre,SIGNAL(clicked()),this,SLOT(showPersonalExperiencePage()));
+
+	connect(ui->m_Ok,SIGNAL(clicked()),this,SLOT(onOkButton()));
+
+	connect(ui->m_ExportExcel,SIGNAL(clicked()),this,SLOT(onExportExcel()));
+	connect(ui->m_ShowDetail,SIGNAL(stateChanged(int)),this,SLOT(isShowDetail(int)));
 }
 
 void InfoQueryDialog::showConditionWidget(QString conditionType)
@@ -144,7 +169,8 @@ void InfoQueryDialog::showConditionWidget(QString conditionType)
 void InfoQueryDialog::onQueryButton()
 {
 	QString queryCondition;
-	queryCondition.append(tr("SELECT 人事号,姓名,所在专业,类别 from TeachersInfo WHERE "));
+	queryCondition.append(tr("SELECT * from TeachersInfo WHERE "));
+	isShowDetail(ui->m_ShowDetail->checkState());
 
 	if(ui->m_ConditionType1->isVisible())
 	{
@@ -154,7 +180,7 @@ void InfoQueryDialog::onQueryButton()
 			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
 			return;
 		}
-		queryCondition.append(ui->m_ConditionType1->currentText() + " = " + condition1);
+		queryCondition.append(ui->m_ConditionType1->currentText() + " = '" + condition1 + "'");
 	}
 
 	if(ui->m_ConditionType2->isVisible())
@@ -165,7 +191,7 @@ void InfoQueryDialog::onQueryButton()
 			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
 			return;
 		}
-		queryCondition.append(" AND " + ui->m_ConditionType2->currentText() + " = " + condition2);
+		queryCondition.append(" AND " + ui->m_ConditionType2->currentText() + " = '" + condition2 + "'");
 	}
 
 	if(ui->m_ConditionType3->isVisible())
@@ -176,7 +202,7 @@ void InfoQueryDialog::onQueryButton()
 			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
 			return;
 		}
-		queryCondition.append(" AND " + ui->m_ConditionType3->currentText() + " = " + condition3);
+		queryCondition.append(" AND " + ui->m_ConditionType3->currentText() + " = '" + condition3+ "'");
 	}
 
 	if(ui->m_ConditionType4->isVisible())
@@ -187,7 +213,7 @@ void InfoQueryDialog::onQueryButton()
 			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
 			return;
 		}
-		queryCondition.append(" AND " + ui->m_ConditionType4->currentText() + " = " + condition4);
+		queryCondition.append(" AND " + ui->m_ConditionType4->currentText() + " = '" + condition4 + "'");
 	}
 
 	if(ui->m_ConditionType5->isVisible())
@@ -198,7 +224,7 @@ void InfoQueryDialog::onQueryButton()
 			QMessageBox::information(this,tr("提示"),tr("查询条件不能为空。"));
 			return;
 		}
-		queryCondition.append(" AND " + ui->m_ConditionType5->currentText() + " = " + condition5);
+		queryCondition.append(" AND " + ui->m_ConditionType5->currentText() + " = '" + condition5 + "'");
 	}
 
 	m_Model->setQuery(queryCondition);
@@ -208,71 +234,49 @@ void InfoQueryDialog::onQueryButton()
 void InfoQueryDialog::onDetailAction()
 {
 	int row = ui->m_QueryResult->currentIndex().row();
+
 	QModelIndex index = ui->m_QueryResult->model()->index(row,0);
-	qDebug()<<"data:"<<index.data().toString();
 
 	QString personnelNo = index.data().toString();
 
-	QString selectSql = tr("SELECT 人事号 from TeachersInfo WHERE 人事号 = ") + personnelNo;
+	TeachersInfoTable *teacherInfoTable = DataCenter::instance()->techersInfoTableInstance();
 
-	QSqlQuery sqlQuery;
-	if(!sqlQuery.exec(selectSql))
+	QVector<TeacherInfo *> teacherInfoList;
+	if(!teacherInfoTable->queryTeacherInfo(tr("人事号"),personnelNo,teacherInfoList))
 	{
-		//		qDebug()<<m_Database.lastError();
-		//		return false;
-	}
-
-
-	m_TeacherInfo = new TeacherInfo;
-	QSqlRecord record = sqlQuery.record();
-
-	while(sqlQuery.next())
-	{
-		m_TeacherInfo->name = record.value(tr("姓名")).toString();
-		m_TeacherInfo->sex = record.value(tr("性别")).toString();
-		m_TeacherInfo->nationality = record.value(tr("民族")).toString();
-		m_TeacherInfo->origin = record.value(tr("籍贯")).toString();
-		m_TeacherInfo->id = record.value(tr("身份证号")).toString();
-		m_TeacherInfo->birthday = record.value(tr("出生年月")).toString();
-		m_TeacherInfo->politicsStatus = record.value(tr("政治面貌")).toString();
-		m_TeacherInfo->partyTime = record.value(tr("入党时间")).toString();
-		m_TeacherInfo->department = record.value(tr("所在专业")).toString();
-		m_TeacherInfo->category = record.value(tr("类别")).toString();
-		m_TeacherInfo->personnelNo = record.value(tr("人事号")).toString();
-		m_TeacherInfo->titleAndRank = record.value(tr("职称职级")).toString();
-		m_TeacherInfo->titleTime = record.value(tr("职称职级时间")).toString();
-		m_TeacherInfo->currentPositionTime = record.value(tr("任现职时间")).toString();
-		m_TeacherInfo->academicParttime = record.value(tr("学术兼职情况")).toString();
-		m_TeacherInfo->personnelPlan = record.value(tr("获人才计划情况")).toString();
-		m_TeacherInfo->administrationParttime = record.value(tr("行政兼职")).toString();
-		m_TeacherInfo->otherParttime = record.value(tr("其他兼职")).toString();
-		m_TeacherInfo->graduateTrain = record.value(tr("研究生培养")).toString();
-		m_TeacherInfo->teacherTime = record.value(tr("任博导时间")).toString();
-		m_TeacherInfo->bachelorTime = record.value(tr("学士学位取得时间")).toString();
-		m_TeacherInfo->masterTime = record.value(tr("硕士学位取得时间")).toString();
-		m_TeacherInfo->doctorTime = record.value(tr("博士学位取得时间")).toString();
-		m_TeacherInfo->firstWorkTime = record.value(tr("最初工作时间")).toString();
-		m_TeacherInfo->firstWorkPlace = record.value(tr("最初工作单位")).toString();
-		m_TeacherInfo->whuTime = record.value(tr("到本院时间")).toString();
-		m_TeacherInfo->beAbroadExperience = record.value(tr("出国及回国情况")).toString();
-		m_TeacherInfo->retirementTime = record.value(tr("退休时间")).toString();
-		m_TeacherInfo->email = record.value(tr("电子邮箱")).toString();
-		m_TeacherInfo->officePhone = record.value(tr("办公电话")).toString();
-		m_TeacherInfo->mobilePhone = record.value(tr("移动电话")).toString();
-	}
-
-	if(sqlQuery.next())
-	{
-		QMessageBox::warning(this,tr("出错了"),tr("两个人的人事号相同"));
+		QMessageBox::warning(this,tr("错误"),tr("获取详情失败"));
+		return;
 	}
 
 	ui->m_TeacherInfoTab->show();
-	setTeachersInfo(*m_TeacherInfo);
+	ui->m_QueryFrame->hide();
+
+	TeacherInfo *teacherInfo = teacherInfoList[0];
+	if(teacherInfo != NULL)
+	{
+		setTeachersInfo(*teacherInfo);
+	}
 }
 
 void InfoQueryDialog::onDeleteAction()
 {
+	int row = ui->m_QueryResult->currentIndex().row();
 
+	QModelIndex index = ui->m_QueryResult->model()->index(row,0);
+
+	QString personnelNo = index.data().toString();
+
+	TeachersInfoTable *teacherInfoTable = DataCenter::instance()->techersInfoTableInstance();
+
+	if(!teacherInfoTable->deleteTeacherInfo(tr("人事号"),personnelNo))
+	{
+		QMessageBox::warning(this,tr("错误"),tr("删除失败"));
+		return;
+	}
+	else
+	{
+		onQueryButton();
+	}
 }
 
 void InfoQueryDialog::setTeachersInfo(TeacherInfo &teacherInfo)
@@ -323,4 +327,140 @@ void InfoQueryDialog::setTeachersInfo(TeacherInfo &teacherInfo)
 	ui->m_MobilePhone->setText(teacherInfo.mobilePhone);
 }
 
+void InfoQueryDialog::showPersonalInfoPage()
+{
+	ui->m_TeacherInfoTab->setCurrentIndex(0);
+}
 
+void InfoQueryDialog::showPoliticalInfoPage()
+{
+	ui->m_TeacherInfoTab->setCurrentIndex(1);
+}
+
+void InfoQueryDialog::showWorkInfoPage()
+{
+	ui->m_TeacherInfoTab->setCurrentIndex(2);
+}
+
+void InfoQueryDialog::showPersonalExperiencePage()
+{
+	ui->m_TeacherInfoTab->setCurrentIndex(3);
+}
+
+void InfoQueryDialog::showRemarkPage()
+{
+	ui->m_TeacherInfoTab->setCurrentIndex(4);
+}
+
+void InfoQueryDialog::onOkButton()
+{
+	ui->m_TeacherInfoTab->hide();
+	ui->m_TeacherInfoTab->setCurrentIndex(0);
+	ui->m_QueryFrame->show();
+}
+
+void InfoQueryDialog::onExportExcel()
+{
+	QString filePath = QFileDialog::getSaveFileName(this, tr("请选择要导出的excel文件路径"), "", tr("Excel 文件(*.xls)"));
+
+	if(filePath == "")
+		return;
+
+	ExportExcelObject *exportExcelObject = new ExportExcelObject(filePath, tr("教职工信息表"), ui->m_QueryResult);
+	exportExcelObject->addField(0, tr("姓名"), "varchar(20)");
+	exportExcelObject->addField(1, tr("性别"), "varchar(10)");
+	exportExcelObject->addField(2, tr("民族")," varchar(20)");
+	exportExcelObject->addField(3, tr("籍贯"),"varchar(20)");
+	exportExcelObject->addField(4, tr("身份证号"),"varchar(20)");
+	exportExcelObject->addField(5, tr("出生年月"),"varchar(20)");
+	exportExcelObject->addField(6, tr("政治面貌"),"varchar(20)");
+	exportExcelObject->addField(7, tr("入党时间"),"varchar(20)");
+	exportExcelObject->addField(8, tr("所在专业"),"varchar(30)");
+	exportExcelObject->addField(9, tr("类别"),"varchar(20)");
+	exportExcelObject->addField(10 ,tr("人事号"),"varchar(8)");
+	exportExcelObject->addField(11, tr("职称职级"),"varchar(30)");
+	exportExcelObject->addField(12, tr("职称职级晋升时间"),"varchar(20)");
+	exportExcelObject->addField(13, tr("任现职时间"),"varchar(50)");
+	exportExcelObject->addField(14, tr("学术兼职情况"),"varchar(50)");
+	exportExcelObject->addField(15, tr("获人才计划情况"),"varchar(50)");
+	exportExcelObject->addField(16, tr("行政兼职"), "varchar(50)");
+	exportExcelObject->addField(17, tr("其他兼职"), "varchar(50)");
+	exportExcelObject->addField(18, tr("研究生培养"),"varchar(50)");
+	exportExcelObject->addField(19, tr("任博导时间"),"varchar(20)");
+	exportExcelObject->addField(20, tr("学士学位取得时间"),"varchar(20)");
+	exportExcelObject->addField(21, tr("硕士学位取得时间"),"varchar(20)");
+	exportExcelObject->addField(22, tr("博士学位取得时间"),"varchar(20)");
+	exportExcelObject->addField(23, tr("最初工作时间"),"varchar(20)");
+	exportExcelObject->addField(24, tr("最初工作单位"),"varchar(20)");
+	exportExcelObject->addField(25 ,tr("到本院工作时间"),"varchar(20)");
+	exportExcelObject->addField(26, tr("出国及回国情况"),"varchar(200)");
+	exportExcelObject->addField(27, tr("退休时间"),"varchar(20)");
+	exportExcelObject->addField(28, tr("电子邮箱"),"varchar(20)");
+	exportExcelObject->addField(29, tr("办公电话"),"varchar(20)");
+	exportExcelObject->addField(30, tr("移动电话"),"varchar(20)");
+
+	QProgressDialog progressDialog;
+	progressDialog.setRange(0, m_Model->rowCount());
+	connect(exportExcelObject, SIGNAL(exportedRowCount(int)), &progressDialog, SLOT(setValue(int)));
+	progressDialog.show();
+
+	int ret = exportExcelObject->export2Excel();
+
+	if(ret > 0)
+	{
+		QMessageBox::information(this, tr("消息"), tr("Excel文档导出成功！"));
+	}
+	else
+	{
+		QMessageBox::critical(this, tr("错误"), tr("Excel文档导出失败！"));
+	}
+
+	delete exportExcelObject;
+}
+
+//void InfoQueryDialog::onShowDetail(Qt::CheckState checkeState)
+//{
+//	if(checkeState == Qt::Checked)
+//	{
+//		for(int i = 0; i != 31; i++)
+//		{
+//			ui->m_QueryResult->setColumnHidden(i,false);
+//		}
+//	}
+//	else if(checkeState == Qt::Unchecked)
+//	{
+//		for(int i = 0; i != 31; i++)
+//		{
+//			ui->m_QueryResult->setColumnHidden(i,true);
+//		}
+
+//		ui->m_QueryResult->setColumnHidden(0,false);
+//		ui->m_QueryResult->setColumnHidden(8,false);
+//		ui->m_QueryResult->setColumnHidden(10,false);
+//		ui->m_QueryResult->setColumnHidden(11,false);
+//	}
+//}
+
+void InfoQueryDialog::isShowDetail(int checkeState)
+{
+	qDebug()<<"this.";
+	if(checkeState == Qt::Checked)
+	{
+		for(int i = 0; i != 31; i++)
+		{
+			ui->m_QueryResult->setColumnHidden(i,false);
+		}
+	}
+	else if(checkeState == Qt::Unchecked)
+	{
+		for(int i = 0; i != 31; i++)
+		{
+			ui->m_QueryResult->setColumnHidden(i,true);
+		}
+
+		ui->m_QueryResult->setColumnHidden(0,false);
+		ui->m_QueryResult->setColumnHidden(8,false);
+		ui->m_QueryResult->setColumnHidden(10,false);
+		ui->m_QueryResult->setColumnHidden(11,false);
+	}
+}

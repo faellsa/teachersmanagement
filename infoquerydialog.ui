@@ -7,714 +7,739 @@
     <x>0</x>
     <y>0</y>
     <width>802</width>
-    <height>1051</height>
+    <height>1208</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <layout class="QVBoxLayout" name="verticalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_9">
    <item>
-    <widget class="QFrame" name="m_ConditionFrame1">
+    <widget class="QFrame" name="m_QueryFrame">
      <property name="frameShape">
       <enum>QFrame::StyledPanel</enum>
      </property>
      <property name="frameShadow">
       <enum>QFrame::Raised</enum>
      </property>
-     <layout class="QHBoxLayout" name="horizontalLayout">
-      <property name="margin">
-       <number>0</number>
-      </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
       <item>
-       <widget class="QLabel" name="label">
-        <property name="text">
-         <string>查询条件：</string>
+       <widget class="QFrame" name="m_ConditionFrame1">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QLabel" name="label">
+           <property name="text">
+            <string>查询条件：</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType1">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称职级</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit1"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox1"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition1">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_Query">
+           <property name="text">
+            <string>查 询</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>209</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame2">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_2">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType2">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称职级</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit2"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox2"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition2">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition2">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame3">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_4">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType3">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称职级</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit3"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox3"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition3">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition3">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_8">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame4">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_6">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType4">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称职级</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit4"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox4"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition4">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition4">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_9">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame5">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_5">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_5">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType5">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称职级</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit5"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox5"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition5">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QTableView" name="m_QueryResult">
+        <property name="alternatingRowColors">
+         <bool>true</bool>
+        </property>
+        <property name="sortingEnabled">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QComboBox" name="m_ConditionType1">
-        <property name="maxVisibleItems">
-         <number>20</number>
-        </property>
+       <layout class="QHBoxLayout" name="horizontalLayout_6">
         <item>
-         <property name="text">
-          <string>请选择</string>
-         </property>
+         <widget class="QCheckBox" name="m_ShowDetail">
+          <property name="text">
+           <string>显示详情</string>
+          </property>
+          <property name="checkable">
+           <bool>true</bool>
+          </property>
+          <property name="checked">
+           <bool>false</bool>
+          </property>
+         </widget>
         </item>
         <item>
-         <property name="text">
-          <string>姓名</string>
-         </property>
+         <spacer name="horizontalSpacer_7">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>40</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
         </item>
         <item>
-         <property name="text">
-          <string>性别</string>
-         </property>
+         <widget class="QPushButton" name="m_ExportExcel">
+          <property name="text">
+           <string>导出Excel</string>
+          </property>
+         </widget>
         </item>
-        <item>
-         <property name="text">
-          <string>类别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>人事号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>所在专业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>身份证号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>政治面貌</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>职称职级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>行政兼职</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>研究生培养</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="m_ConditionEdit1"/>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionComboBox1"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_AddCondition1">
-        <property name="minimumSize">
-         <size>
-          <width>0</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>增加条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_Query">
-        <property name="text">
-         <string>查 询</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>209</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
+       </layout>
       </item>
      </layout>
     </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="m_ConditionFrame2">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_2">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <item>
-       <spacer name="horizontalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>66</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionType2">
-        <property name="maxVisibleItems">
-         <number>20</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>请选择</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>姓名</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>性别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>类别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>人事号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>所在专业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>身份证号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>政治面貌</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>职称职级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>行政兼职</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>研究生培养</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="m_ConditionEdit2"/>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionComboBox2"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_AddCondition2">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>增加条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_DelCondition2">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>删除条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_3">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="m_ConditionFrame3">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_3">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <item>
-       <spacer name="horizontalSpacer_4">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>66</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionType3">
-        <property name="maxVisibleItems">
-         <number>20</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>请选择</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>姓名</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>性别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>类别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>人事号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>所在专业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>身份证号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>政治面貌</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>职称职级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>行政兼职</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>研究生培养</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="m_ConditionEdit3"/>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionComboBox3"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_AddCondition3">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>增加条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_DelCondition3">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>删除条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_8">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="m_ConditionFrame4">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_4">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <item>
-       <spacer name="horizontalSpacer_6">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>66</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionType4">
-        <property name="maxVisibleItems">
-         <number>20</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>请选择</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>姓名</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>性别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>类别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>人事号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>所在专业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>身份证号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>政治面貌</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>职称职级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>行政兼职</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>研究生培养</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="m_ConditionEdit4"/>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionComboBox4"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_AddCondition4">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>增加条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_DelCondition4">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>删除条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_9">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QFrame" name="m_ConditionFrame5">
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
-     </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <layout class="QHBoxLayout" name="horizontalLayout_5">
-      <property name="margin">
-       <number>0</number>
-      </property>
-      <item>
-       <spacer name="horizontalSpacer_5">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeType">
-         <enum>QSizePolicy::Fixed</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>66</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionType5">
-        <property name="maxVisibleItems">
-         <number>20</number>
-        </property>
-        <item>
-         <property name="text">
-          <string>请选择</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>姓名</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>性别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>类别</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>人事号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>所在专业</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>身份证号</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>政治面貌</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>职称职级</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>行政兼职</string>
-         </property>
-        </item>
-        <item>
-         <property name="text">
-          <string>研究生培养</string>
-         </property>
-        </item>
-       </widget>
-      </item>
-      <item>
-       <widget class="QLineEdit" name="m_ConditionEdit5"/>
-      </item>
-      <item>
-       <widget class="QComboBox" name="m_ConditionComboBox5"/>
-      </item>
-      <item>
-       <widget class="QPushButton" name="m_DelCondition5">
-        <property name="maximumSize">
-         <size>
-          <width>70</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="text">
-         <string>删除条件</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="horizontalSpacer_10">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>40</width>
-          <height>20</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-     </layout>
-    </widget>
-   </item>
-   <item>
-    <widget class="QTableView" name="m_QueryResult">
-     <property name="alternatingRowColors">
-      <bool>true</bool>
-     </property>
-     <property name="sortingEnabled">
-      <bool>true</bool>
-     </property>
-    </widget>
-   </item>
-   <item>
-    <layout class="QHBoxLayout" name="horizontalLayout_6">
-     <item>
-      <spacer name="horizontalSpacer_7">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton">
-       <property name="text">
-        <string>导出Excel</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
    </item>
    <item>
     <widget class="QTabWidget" name="m_TeacherInfoTab">
@@ -945,7 +970,7 @@
         </rect>
        </property>
        <property name="text">
-        <string>下一步</string>
+        <string>下一页</string>
        </property>
       </widget>
      </widget>
@@ -1070,7 +1095,7 @@
         <item>
          <widget class="QPushButton" name="m_Page2Pre">
           <property name="text">
-           <string>上一步</string>
+           <string>上一页</string>
           </property>
          </widget>
         </item>
@@ -1090,7 +1115,7 @@
         <item>
          <widget class="QPushButton" name="m_Page2Next">
           <property name="text">
-           <string>下一步</string>
+           <string>下一页</string>
           </property>
          </widget>
         </item>
@@ -1114,7 +1139,7 @@
         <item>
          <widget class="QPushButton" name="m_Page3Pre">
           <property name="text">
-           <string>上一步</string>
+           <string>上一页</string>
           </property>
          </widget>
         </item>
@@ -1134,7 +1159,7 @@
         <item>
          <widget class="QPushButton" name="m_Page3Next">
           <property name="text">
-           <string>下一步</string>
+           <string>下一页</string>
           </property>
          </widget>
         </item>
@@ -1624,7 +1649,7 @@
         <item>
          <widget class="QPushButton" name="m_Page4Pre">
           <property name="text">
-           <string>上一步</string>
+           <string>上一页</string>
           </property>
          </widget>
         </item>
@@ -1644,7 +1669,7 @@
         <item>
          <widget class="QPushButton" name="m_Page4Next">
           <property name="text">
-           <string>下一步</string>
+           <string>下一页</string>
           </property>
          </widget>
         </item>
@@ -1949,7 +1974,7 @@
         <item>
          <widget class="QPushButton" name="m_Page5Pre">
           <property name="text">
-           <string>上一步</string>
+           <string>上一页</string>
           </property>
          </widget>
         </item>

@@ -21,7 +21,8 @@ SOURCES += main.cpp\
     personalinfodialog.cpp \
     addteacherinfodialog.cpp \
     infoquerydialog.cpp \
-    teachersinfotable.cpp
+    teachersinfotable.cpp \
+    exportexcelobject.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -33,7 +34,8 @@ HEADERS  += mainwindow.h \
     personalinfodialog.h \
     addteacherinfodialog.h \
     infoquerydialog.h \
-    teachersinfotable.h
+    teachersinfotable.h \
+    exportexcelobject.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
