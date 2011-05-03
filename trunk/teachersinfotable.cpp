@@ -4,6 +4,8 @@
 #include <QSqlError>
 #include "datacenter.h"
 #include <QDebug>
+#include <QVector>
+#include <QVariant>
 
 TeachersInfoTable::TeachersInfoTable(const DataCenter& dataCenter)
 	:m_Database(dataCenter.getDatabase())
@@ -95,6 +97,74 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 
 	QSqlQuery sqlQuery(m_Database);
 	if(!sqlQuery.exec(insertSql))
+	{
+		qDebug()<<m_Database.lastError();
+		return false;
+	}
+	return true;
+}
+
+bool TeachersInfoTable::queryTeacherInfo(QString conditionType, QString conditionValue, QVector<TeacherInfo *> &teacherInfoList)
+{
+	QString querySql = "SELECT * from TeachersInfo WHERE " + conditionType + " = '" + conditionValue + "'";
+
+	QSqlQuery sqlQuery;
+	if(!sqlQuery.exec(querySql))
+	{
+		qDebug()<<"Query failed : "<<m_Database.lastError();
+		return false;
+	}
+
+	while(sqlQuery.next())
+	{
+		QSqlRecord record = sqlQuery.record();
+
+		TeacherInfo *teacherInfo = new TeacherInfo;
+
+		teacherInfo->name = record.value(QObject::tr("姓名")).toString();
+		teacherInfo->sex = record.value(QObject::tr("性别")).toString();
+		teacherInfo->nationality = record.value(QObject::tr("民族")).toString();
+		teacherInfo->origin = record.value(QObject::tr("籍贯")).toString();
+		teacherInfo->id = record.value(QObject::tr("身份证号")).toString();
+		teacherInfo->birthday = record.value(QObject::tr("出生年月")).toString();
+		teacherInfo->politicsStatus = record.value(QObject::tr("政治面貌")).toString();
+		teacherInfo->partyTime = record.value(QObject::tr("入党时间")).toString();
+		teacherInfo->department = record.value(QObject::tr("所在专业")).toString();
+		teacherInfo->category = record.value(QObject::tr("类别")).toString();
+		teacherInfo->personnelNo = record.value(QObject::tr("人事号")).toString();
+		teacherInfo->titleAndRank = record.value(QObject::tr("职称职级")).toString();
+		teacherInfo->titleTime = record.value(QObject::tr("职称职级时间")).toString();
+		teacherInfo->currentPositionTime = record.value(QObject::tr("任现职时间")).toString();
+		teacherInfo->academicParttime = record.value(QObject::tr("学术兼职情况")).toString();
+		teacherInfo->personnelPlan = record.value(QObject::tr("获人才计划情况")).toString();
+		teacherInfo->administrationParttime = record.value(QObject::tr("行政兼职")).toString();
+		teacherInfo->otherParttime = record.value(QObject::tr("其他兼职")).toString();
+		teacherInfo->graduateTrain = record.value(QObject::tr("研究生培养")).toString();
+		teacherInfo->teacherTime = record.value(QObject::tr("任博导时间")).toString();
+		teacherInfo->bachelorTime = record.value(QObject::tr("学士学位取得时间")).toString();
+		teacherInfo->masterTime = record.value(QObject::tr("硕士学位取得时间")).toString();
+		teacherInfo->doctorTime = record.value(QObject::tr("博士学位取得时间")).toString();
+		teacherInfo->firstWorkTime = record.value(QObject::tr("最初工作时间")).toString();
+		teacherInfo->firstWorkPlace = record.value(QObject::tr("最初工作单位")).toString();
+		teacherInfo->whuTime = record.value(QObject::tr("到本院时间")).toString();
+		teacherInfo->beAbroadExperience = record.value(QObject::tr("出国及回国情况")).toString();
+		teacherInfo->retirementTime = record.value(QObject::tr("退休时间")).toString();
+		teacherInfo->email = record.value(QObject::tr("电子邮箱")).toString();
+		teacherInfo->officePhone = record.value(QObject::tr("办公电话")).toString();
+		teacherInfo->mobilePhone = record.value(QObject::tr("移动电话")).toString();
+
+		teacherInfoList.push_back(teacherInfo);
+	}
+
+	return true;
+}
+
+bool TeachersInfoTable::deleteTeacherInfo(QString conditionType, QString conditionValue)
+{
+	QString deleteSql = "DELETE FROM TeachersInfo WHERE " + conditionType + " = '" + conditionValue + "'";
+
+	QSqlQuery sqlQuery(m_Database);
+	if(!sqlQuery.exec(deleteSql))
 	{
 		qDebug()<<m_Database.lastError();
 		return false;

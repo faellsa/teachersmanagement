@@ -45,6 +45,8 @@ class TeachersInfoTable
 public:
 	TeachersInfoTable(const DataCenter& dataCenter);
 	bool newTeacherInfo(const TeacherInfo &teacherInfo);
+	bool queryTeacherInfo(QString conditionType,QString conditionValue,QVector<TeacherInfo*> &teacherInfo);
+	bool deleteTeacherInfo(QString conditionType,QString conditionValue);
 
 private:
 	void createTable();

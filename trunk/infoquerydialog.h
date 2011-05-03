@@ -37,6 +37,16 @@ private slots:
 	void onQueryButton();
 	void onDeleteAction();
 	void onDetailAction();
+	void showPersonalInfoPage();
+	void showPoliticalInfoPage();
+	void showWorkInfoPage();
+	void showPersonalExperiencePage();
+	void showRemarkPage();
+	void onOkButton();
+	void onExportExcel();
+	//void onShowDetail(Qt::CheckState checkeState);
+	void isShowDetail(int checkeState);
+
 };
 
 #endif // INFOQUERYDIALOG_H
