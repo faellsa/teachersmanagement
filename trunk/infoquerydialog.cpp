@@ -55,9 +55,9 @@ void InfoQueryDialog::setupWidgets()
 	m_Model->setQuery(tr("SELECT * from TeachersInfo WHERE 1 = 2"));
 	isShowDetail(ui->m_ShowDetail->checkState());
 
-	m_DetailAction = new QAction(tr("ÏêÇé"), this);
+	m_EditAction = new QAction(tr("±à¼­"), this);
 	m_DeleteAction = new QAction(tr("É¾³ý"),this);
-	m_Actions.append(m_DetailAction);
+	m_Actions.append(m_EditAction);
 	m_Actions.append(m_DeleteAction);
 
 	ui->m_QueryResult->setContextMenuPolicy(Qt::ActionsContextMenu);
@@ -83,7 +83,7 @@ void InfoQueryDialog::setupSignals()
 
 	connect(ui->m_Query,SIGNAL(clicked()),this,SLOT(onQueryButton()));
 	connect(m_DeleteAction,SIGNAL(triggered()),this,SLOT(onDeleteAction()));
-	connect(m_DetailAction,SIGNAL(triggered()),this,SLOT(onDetailAction()));
+	connect(m_EditAction,SIGNAL(triggered()),this,SLOT(onDetailAction()));
 
 	connect(ui->m_Page1Next,SIGNAL(clicked()),this,SLOT(showPoliticalInfoPage()));
 
@@ -235,7 +235,14 @@ void InfoQueryDialog::onDetailAction()
 {
 	int row = ui->m_QueryResult->currentIndex().row();
 
-	QModelIndex index = ui->m_QueryResult->model()->index(row,0);
+	int column = 0;
+	for(column = 0; column != 31; column++)
+	{
+		if(m_Model->headerData(column,Qt::Horizontal).toString().compare(tr("ÈËÊÂºÅ")) == 0)
+			break;
+	}
+
+	QModelIndex index = ui->m_QueryResult->model()->index(row,column);
 
 	QString personnelNo = index.data().toString();
 
@@ -443,7 +450,6 @@ void InfoQueryDialog::onExportExcel()
 
 void InfoQueryDialog::isShowDetail(int checkeState)
 {
-	qDebug()<<"this.";
 	if(checkeState == Qt::Checked)
 	{
 		for(int i = 0; i != 31; i++)

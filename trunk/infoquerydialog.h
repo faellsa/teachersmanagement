@@ -23,7 +23,7 @@ private:
 	QSqlQueryModel* m_Model;
 
 	QAction* m_DeleteAction;
-	QAction* m_DetailAction;
+	QAction* m_EditAction;
 	QList <QAction*> m_Actions;
 
 	TeacherInfo *m_TeacherInfo;
