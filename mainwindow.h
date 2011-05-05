@@ -58,6 +58,10 @@ private slots:
 	void exit();
 	void onTrayIconActived(QSystemTrayIcon::ActivationReason activationReason);
 
+	void onAddAction();
+	void onQueryAction();
+	void onUserManage();
+
 protected:
 	void closeEvent(QCloseEvent *event);
 };

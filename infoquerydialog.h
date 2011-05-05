@@ -27,6 +27,7 @@ private:
 	QList <QAction*> m_Actions;
 
 	TeacherInfo *m_TeacherInfo;
+	QString m_PersonnelNo;
 
 	void setupWidgets();
 	void setupSignals();

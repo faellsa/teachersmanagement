@@ -6,6 +6,7 @@
 #include <QObject>
 
 class TeachersInfoTable;
+class AccountManage;
 
 class DataCenter
 {
@@ -17,6 +18,7 @@ public:
 								const QString &password = "123456",
 								const QString &driverType = "QODBC");
 	TeachersInfoTable *techersInfoTableInstance();
+	AccountManage *accountManageInstance();
 
 	QSqlDatabase getDatabase() const
 	{
@@ -52,6 +54,7 @@ private:
 	QSqlDatabase m_Database;
 	static DataCenter *m_DataCenter;
 	static TeachersInfoTable *m_TeachersInfoTable;
+	static AccountManage *m_AccountManage;
 
 };
 

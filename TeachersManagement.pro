@@ -10,6 +10,7 @@ QT       += core gui\
 TARGET = TeachersManagement
 TEMPLATE = app
 
+INCLUDEPATH += .
 SOURCES += main.cpp\
         mainwindow.cpp \
     logindialog.cpp \
@@ -22,7 +23,8 @@ SOURCES += main.cpp\
     addteacherinfodialog.cpp \
     infoquerydialog.cpp \
     teachersinfotable.cpp \
-    exportexcelobject.cpp
+    exportexcelobject.cpp \
+    accountmanage.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -35,7 +37,8 @@ HEADERS  += mainwindow.h \
     addteacherinfodialog.h \
     infoquerydialog.h \
     teachersinfotable.h \
-    exportexcelobject.h
+    exportexcelobject.h \
+    accountmanage.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \

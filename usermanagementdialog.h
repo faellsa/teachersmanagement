@@ -2,6 +2,7 @@
 #define USERMANAGEMENTDIALOG_H
 
 #include "childdialogbase.h"
+#include "datacenter.h"
 
 namespace Ui {
     class UserManagementDialog;
@@ -17,6 +18,14 @@ public:
 
 private:
     Ui::UserManagementDialog *ui;
+	void setupSignals();
+	DataCenter *m_DataCenter;
+	AccountManage* m_accountManage;
+
+private slots:
+	void onOkForModify();
+	void onCancel();
+	void clearEdit();
 };
 
 #endif // USERMANAGEMENTDIALOG_H

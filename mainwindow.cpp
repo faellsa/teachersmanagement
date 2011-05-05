@@ -7,11 +7,13 @@
 //#include "personalinfodialog.h"
 #include "addteacherinfodialog.h"
 #include "infoquerydialog.h"
+#include "QMenuBar"
+#include "QMenu"
 
 MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-	ui(new Ui::MainWindow),
-	m_ChildDialogBase(NULL)
+		QMainWindow(parent),
+		ui(new Ui::MainWindow),
+		m_ChildDialogBase(NULL)
 {
     ui->setupUi(this);
 
@@ -19,6 +21,7 @@ MainWindow::MainWindow(QWidget *parent) :
 	try{
 		m_DataCenter = DataCenter::instance();
 		m_DataCenter->techersInfoTableInstance();
+		m_DataCenter->accountManageInstance();
 	}catch(DatabaseException& e)
 	{
 		QMessageBox::critical(this, tr("严重错误！"), tr("连接数据库出错！\n")+e.errorMsg());
@@ -56,17 +59,17 @@ void MainWindow::setupWidgets()
 	m_InfoManage = new QTreeWidgetItem(QStringList(tr("教师信息管理")));
 	m_AddTeacherInfo = new QTreeWidgetItem(QStringList(tr("增加记录")),m_AddTeacherInfoType);
 
-//	m_PersonalInfo = new QTreeWidgetItem(QStringList(tr("个人信息")),m_PersonalInfoType);
-//	m_PoliticalInfo = new QTreeWidgetItem(QStringList(tr("政治面貌")));
-//	m_WorkInfo = new QTreeWidgetItem(QStringList(tr("工作信息")));
-//	m_PersonalExperience = new QTreeWidgetItem(QStringList(tr("个人经历")));
-//	m_Remark = new QTreeWidgetItem(QStringList(tr("备注")));
+	//	m_PersonalInfo = new QTreeWidgetItem(QStringList(tr("个人信息")),m_PersonalInfoType);
+	//	m_PoliticalInfo = new QTreeWidgetItem(QStringList(tr("政治面貌")));
+	//	m_WorkInfo = new QTreeWidgetItem(QStringList(tr("工作信息")));
+	//	m_PersonalExperience = new QTreeWidgetItem(QStringList(tr("个人经历")));
+	//	m_Remark = new QTreeWidgetItem(QStringList(tr("备注")));
 
-//	m_AddTeacherInfo->addChild(m_PersonalInfo);
-//	m_AddTeacherInfo->addChild(m_PoliticalInfo);
-//	m_AddTeacherInfo->addChild(m_WorkInfo);
-//	m_AddTeacherInfo->addChild(m_PersonalExperience);
-//	m_AddTeacherInfo->addChild(m_Remark);
+	//	m_AddTeacherInfo->addChild(m_PersonalInfo);
+	//	m_AddTeacherInfo->addChild(m_PoliticalInfo);
+	//	m_AddTeacherInfo->addChild(m_WorkInfo);
+	//	m_AddTeacherInfo->addChild(m_PersonalExperience);
+	//	m_AddTeacherInfo->addChild(m_Remark);
 
 	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")),m_InfoQueryType);
 
@@ -107,6 +110,10 @@ void MainWindow::setupSignals()
 			this,SLOT(onFunctionTreeItemClick(QTreeWidgetItem*,int)));
 
 	connect(ui->m_Exit,SIGNAL(triggered()),this,SLOT(exit()));
+
+	connect(ui->m_AddAction,SIGNAL(triggered()),this,SLOT(onAddAction()));
+	connect(ui->m_QueryAction,SIGNAL(triggered()),this,SLOT(onQueryAction()));
+	connect(ui->m_UserManagement,SIGNAL(triggered()),this,SLOT(onUserManage()));
 }
 
 void MainWindow::onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int)
@@ -147,4 +154,36 @@ void MainWindow::onTrayIconActived(QSystemTrayIcon::ActivationReason activationR
 {
 	if(activationReason == QSystemTrayIcon::DoubleClick)
 		showNormal();
+}
+
+void MainWindow::onAddAction()
+{
+	ChildDialogBase *m_currentChildDialog = m_ChildDialogBase;
+
+	m_ChildDialogBase = new AddTeacherInfoDialog();
+
+	if(m_currentChildDialog != m_ChildDialogBase && m_ChildDialogBase != NULL)
+		m_DialogFactory->updateDialog(m_ChildDialogBase);
+
+}
+
+void MainWindow::onQueryAction()
+{
+	ChildDialogBase *m_currentChildDialog = m_ChildDialogBase;
+
+	m_ChildDialogBase = new InfoQueryDialog();
+
+	if(m_currentChildDialog != m_ChildDialogBase && m_ChildDialogBase != NULL)
+		m_DialogFactory->updateDialog(m_ChildDialogBase);
+}
+
+void MainWindow::onUserManage()
+{
+	ChildDialogBase *m_currentChildDialog = m_ChildDialogBase;
+
+	m_ChildDialogBase = new UserManagementDialog();
+
+	if(m_currentChildDialog != m_ChildDialogBase && m_ChildDialogBase != NULL)
+		m_DialogFactory->updateDialog(m_ChildDialogBase);
+
 }

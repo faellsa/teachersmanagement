@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <mainwindow.h>
+#include "datacenter.h"
 
 namespace Ui {
     class LoginDialog;
@@ -20,6 +21,8 @@ private:
     Ui::LoginDialog *ui;
 	void setupSignals();
 	MainWindow *m_MainWindow;
+	DataCenter *m_DataCenter;
+	AccountManage* m_accountManage;
 
 private slots:
 	void onLoginButton();
