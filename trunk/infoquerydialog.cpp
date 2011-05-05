@@ -244,12 +244,12 @@ void InfoQueryDialog::onDetailAction()
 
 	QModelIndex index = ui->m_QueryResult->model()->index(row,column);
 
-	QString personnelNo = index.data().toString();
+	m_PersonnelNo = index.data().toString();
 
 	TeachersInfoTable *teacherInfoTable = DataCenter::instance()->techersInfoTableInstance();
 
 	QVector<TeacherInfo *> teacherInfoList;
-	if(!teacherInfoTable->queryTeacherInfo(tr("人事号"),personnelNo,teacherInfoList))
+	if(!teacherInfoTable->queryTeacherInfo(tr("人事号"),m_PersonnelNo,teacherInfoList))
 	{
 		QMessageBox::warning(this,tr("错误"),tr("获取详情失败"));
 		return;
@@ -271,11 +271,11 @@ void InfoQueryDialog::onDeleteAction()
 
 	QModelIndex index = ui->m_QueryResult->model()->index(row,0);
 
-	QString personnelNo = index.data().toString();
+	m_PersonnelNo = index.data().toString();
 
 	TeachersInfoTable *teacherInfoTable = DataCenter::instance()->techersInfoTableInstance();
 
-	if(!teacherInfoTable->deleteTeacherInfo(tr("人事号"),personnelNo))
+	if(!teacherInfoTable->deleteTeacherInfo(tr("人事号"),m_PersonnelNo))
 	{
 		QMessageBox::warning(this,tr("错误"),tr("删除失败"));
 		return;
@@ -289,26 +289,15 @@ void InfoQueryDialog::onDeleteAction()
 void InfoQueryDialog::setTeachersInfo(TeacherInfo &teacherInfo)
 {
 	ui->m_Name->setText(teacherInfo.name);
-	teacherInfo.sex == "男" ?
-			ui->m_Sex->setCurrentIndex(0):ui->m_Sex->setCurrentIndex(1);
+	ui->m_Sex->setCurrentIndex(ui->m_Sex->findText(teacherInfo.sex));
 	ui->m_Nationality->setText(teacherInfo.nationality);
 	ui->m_Origin->setText(teacherInfo.origin);
 	ui->m_ID->setText(teacherInfo.id);
 	ui->m_Birthday->setDate(QDate::fromString(teacherInfo.birthday,QString("yyyy/M")));
-
-
-	//teacherInfo.politicsStatus = ui->m_PoliticsStatus->currentText();
-
-
+	ui->m_PoliticsStatus->setCurrentIndex(ui->m_PoliticsStatus->findText(teacherInfo.politicsStatus));
 	ui->m_PartyTime->setDate(QDate::fromString(teacherInfo.partyTime,QString("yyyy/M")));
-
-
-	//teacherInfo.department = ui->m_Department->currentText();
-
-
-	//teacherInfo.category = ui->m_Category->currentText();
-
-
+	ui->m_Department->setCurrentIndex(ui->m_Department->findText(teacherInfo.department));
+	ui->m_Category->setCurrentIndex(ui->m_Category->findText(teacherInfo.category));
 	ui->m_PersonnelNo->setText(teacherInfo.personnelNo);
 	ui->m_TitleAndRank->setText(teacherInfo.titleAndRank);
 	ui->m_TitleTime->setDate(QDate::fromString(teacherInfo.titleTime,QString("yyyy/M")));
@@ -317,9 +306,7 @@ void InfoQueryDialog::setTeachersInfo(TeacherInfo &teacherInfo)
 	ui->m_PersonnelPlan->setText(teacherInfo.personnelPlan);
 	ui->m_AdministrationParttime->setText(teacherInfo.administrationParttime);
 	ui->m_OtherParttime->setText(teacherInfo.otherParttime);
-
-	//teacherInfo.graduateTrain = ui->m_GraduateTrain->currentText();
-
+	ui->m_GraduateTrain->setCurrentIndex(ui->m_GraduateTrain->findText(teacherInfo.graduateTrain));
 	ui->m_TeacherTime->setDate(QDate::fromString(teacherInfo.teacherTime,QString("yyyy/M")));
 	ui->m_BachelorTime->setDate(QDate::fromString(teacherInfo.bachelorTime,QString("yyyy/M")));
 	ui->m_MasterTime->setDate(QDate::fromString(teacherInfo.masterTime,QString("yyyy/M")));
@@ -364,6 +351,46 @@ void InfoQueryDialog::onOkButton()
 	ui->m_TeacherInfoTab->hide();
 	ui->m_TeacherInfoTab->setCurrentIndex(0);
 	ui->m_QueryFrame->show();
+
+	if(DataCenter::instance()->techersInfoTableInstance()->deleteTeacherInfo(tr("人事号"),m_PersonnelNo))
+	{
+		TeacherInfo *teacherInfo = new TeacherInfo;
+		teacherInfo->name = ui->m_Name->text();
+		teacherInfo->sex = ui->m_Sex->currentText();
+		teacherInfo->nationality = ui->m_Nationality->text();
+		teacherInfo->origin = ui->m_Origin->text();
+		teacherInfo->id = ui->m_ID->text();
+		teacherInfo->birthday = ui->m_Birthday->date().toString("yyyy/M");
+		teacherInfo->politicsStatus = ui->m_PoliticsStatus->currentText();
+		teacherInfo->partyTime = ui->m_PartyTime->date().toString("yyyy/M");
+		teacherInfo->department = ui->m_Department->currentText();
+		teacherInfo->category = ui->m_Category->currentText();
+		teacherInfo->personnelNo = ui->m_PersonnelNo->text();
+		teacherInfo->titleAndRank = ui->m_TitleAndRank->text();
+		teacherInfo->titleTime = ui->m_TitleTime->date().toString("yyyy/M");
+		teacherInfo->currentPositionTime = ui->m_CurrentPositionTime->date().toString("yyyy/M");
+		teacherInfo->academicParttime = ui->m_AcademicPartTime->text();
+		teacherInfo->personnelPlan = ui->m_PersonnelPlan->text();
+		teacherInfo->administrationParttime = ui->m_AdministrationParttime->text();
+		teacherInfo->otherParttime = ui->m_OtherParttime->text();
+		teacherInfo->graduateTrain = ui->m_GraduateTrain->currentText();
+		teacherInfo->teacherTime = ui->m_TeacherTime->date().toString("yyyy/M");
+		teacherInfo->bachelorTime = ui->m_BachelorTime->date().toString("yyyy/M");
+		teacherInfo->masterTime = ui->m_MasterTime->date().toString("yyyy/M");
+		teacherInfo->doctorTime = ui->m_DoctorTime->date().toString("yyyy/M");
+		teacherInfo->firstWorkTime = ui->m_FirstWorkTime->date().toString("yyyy/M");
+		teacherInfo->firstWorkPlace = ui->m_FirstWorkPlace->text();
+		teacherInfo->whuTime = ui->m_WhuTime->date().toString("yyyy/M");
+		teacherInfo->beAbroadExperience = ui->m_BeAbroadExperience->toPlainText();
+		teacherInfo->retirementTime = ui->m_RetirementTime->date().toString("yyyy/M");
+		teacherInfo->email = ui->m_Email->text();
+		teacherInfo->officePhone = ui->m_OfficePhone->text();
+		teacherInfo->mobilePhone = ui->m_MobilePhone->text();
+
+		if(DataCenter::instance()->techersInfoTableInstance()->newTeacherInfo(*teacherInfo))
+			QMessageBox::information(this,tr("成功"),tr("修改成功"));
+	}
+
 }
 
 void InfoQueryDialog::onExportExcel()
@@ -424,29 +451,6 @@ void InfoQueryDialog::onExportExcel()
 
 	delete exportExcelObject;
 }
-
-//void InfoQueryDialog::onShowDetail(Qt::CheckState checkeState)
-//{
-//	if(checkeState == Qt::Checked)
-//	{
-//		for(int i = 0; i != 31; i++)
-//		{
-//			ui->m_QueryResult->setColumnHidden(i,false);
-//		}
-//	}
-//	else if(checkeState == Qt::Unchecked)
-//	{
-//		for(int i = 0; i != 31; i++)
-//		{
-//			ui->m_QueryResult->setColumnHidden(i,true);
-//		}
-
-//		ui->m_QueryResult->setColumnHidden(0,false);
-//		ui->m_QueryResult->setColumnHidden(8,false);
-//		ui->m_QueryResult->setColumnHidden(10,false);
-//		ui->m_QueryResult->setColumnHidden(11,false);
-//	}
-//}
 
 void InfoQueryDialog::isShowDetail(int checkeState)
 {

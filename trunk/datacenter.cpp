@@ -4,9 +4,11 @@
 #include <QMessageBox>
 #include "databaseexception.h"
 #include "teachersinfotable.h"
+#include "accountmanage.h"
 
 DataCenter *DataCenter::m_DataCenter = NULL;
 TeachersInfoTable *DataCenter::m_TeachersInfoTable = NULL;
+AccountManage *DataCenter::m_AccountManage = NULL;
 
 DataCenter::DataCenter(const QString &hostName,int tcpPort,
 					   const QString &dbName,
@@ -47,4 +49,11 @@ TeachersInfoTable *DataCenter::techersInfoTableInstance()
 		m_TeachersInfoTable = new TeachersInfoTable(*this);
 
 	return m_TeachersInfoTable;
+}
+
+AccountManage* DataCenter::accountManageInstance()
+{
+	if(m_AccountManage == NULL)
+		m_AccountManage = new AccountManage(*this);
+	return m_AccountManage;
 }

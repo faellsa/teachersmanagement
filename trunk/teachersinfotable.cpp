@@ -52,7 +52,7 @@ void TeachersInfoTable::createTable()
 										 "PRIMARY KEY(ÈËÊÂºÅ))");
 	if(!query.exec(createTableSql))
 	{
-		qDebug()<<"create failed.";
+		//qDebug()<<"create failed.";
 	}
 }
 
