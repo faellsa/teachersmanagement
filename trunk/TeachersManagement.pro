@@ -52,3 +52,5 @@ RESOURCES += \
 
 OTHER_FILES += \
     mystyle.qss
+
+RC_FILE += icon.rc

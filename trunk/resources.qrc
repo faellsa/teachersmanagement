@@ -6,5 +6,6 @@
         <file>image/menubar.png</file>
         <file>mystyle.qss</file>
         <file>image/tray.ico</file>
+        <file>image/login2.jpg</file>
     </qresource>
 </RCC>

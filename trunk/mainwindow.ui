@@ -106,7 +106,7 @@
     </property>
     <addaction name="action"/>
     <addaction name="separator"/>
-    <addaction name="action_3"/>
+    <addaction name="m_About"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
@@ -147,7 +147,7 @@
     <string>帮助</string>
    </property>
   </action>
-  <action name="action_3">
+  <action name="m_About">
    <property name="text">
     <string>关于</string>
    </property>
