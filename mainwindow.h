@@ -61,6 +61,7 @@ private slots:
 	void onAddAction();
 	void onQueryAction();
 	void onUserManage();
+	void onAbout();
 
 protected:
 	void closeEvent(QCloseEvent *event);

@@ -8,6 +8,7 @@ AddTeacherInfoDialog::AddTeacherInfoDialog(QDialog *parent) :
     ui(new Ui::AddTeacherInfoDialog)
 {
     ui->setupUi(this);
+	ui->tabWidget->setTabShape(QTabWidget::Triangular);
 	setupSignals();
 }
 

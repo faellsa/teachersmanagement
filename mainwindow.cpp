@@ -17,7 +17,6 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
 
-
 	try{
 		m_DataCenter = DataCenter::instance();
 		m_DataCenter->techersInfoTableInstance();
@@ -40,6 +39,7 @@ MainWindow::~MainWindow()
 void MainWindow::setupWidgets()
 {
 	resize(1000,750);
+	setWindowTitle(tr("生命科学学院教职工信息管理系统"));
 
 	ui->groupBox->setStyleSheet("background-image: url(:/image/title.png);"
 								"border:rgb(103,207,255)");
@@ -53,11 +53,15 @@ void MainWindow::setupWidgets()
 	m_FunctionTree->setColumnCount(1);
 
 	m_SystemManage = new QTreeWidgetItem(QStringList(tr("系统管理")));
+	m_SystemManage->setFont(0,QFont("Times",12));
 	m_UserManagement = new QTreeWidgetItem(QStringList(tr("用户账户")), m_UserManagementType);
+	m_UserManagement->setFont(0,QFont(tr("Times"),11));
 	m_SystemManage->addChild(m_UserManagement);
 
 	m_InfoManage = new QTreeWidgetItem(QStringList(tr("教师信息管理")));
+	m_InfoManage->setFont(0,QFont("Times",12));
 	m_AddTeacherInfo = new QTreeWidgetItem(QStringList(tr("增加记录")),m_AddTeacherInfoType);
+	m_AddTeacherInfo->setFont(0,QFont(tr("Times"), 11));
 
 	//	m_PersonalInfo = new QTreeWidgetItem(QStringList(tr("个人信息")),m_PersonalInfoType);
 	//	m_PoliticalInfo = new QTreeWidgetItem(QStringList(tr("政治面貌")));
@@ -72,6 +76,7 @@ void MainWindow::setupWidgets()
 	//	m_AddTeacherInfo->addChild(m_Remark);
 
 	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")),m_InfoQueryType);
+	m_InfoQuery->setFont(0,QFont(tr("Times"), 11));
 
 	m_InfoManage->addChild(m_AddTeacherInfo);
 	m_InfoManage->addChild(m_InfoQuery);
@@ -114,6 +119,7 @@ void MainWindow::setupSignals()
 	connect(ui->m_AddAction,SIGNAL(triggered()),this,SLOT(onAddAction()));
 	connect(ui->m_QueryAction,SIGNAL(triggered()),this,SLOT(onQueryAction()));
 	connect(ui->m_UserManagement,SIGNAL(triggered()),this,SLOT(onUserManage()));
+	connect(ui->m_About,SIGNAL(triggered()),this,SLOT(onAbout()));
 }
 
 void MainWindow::onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int)
@@ -186,4 +192,9 @@ void MainWindow::onUserManage()
 	if(m_currentChildDialog != m_ChildDialogBase && m_ChildDialogBase != NULL)
 		m_DialogFactory->updateDialog(m_ChildDialogBase);
 
+}
+
+void MainWindow::onAbout()
+{
+	QMessageBox::information(this,tr("关于生命科学学院教职工信息管理系统"),tr("    生命科学学院教职工信息管理系统    "));
 }

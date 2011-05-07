@@ -11,6 +11,8 @@ LoginDialog::LoginDialog(QWidget *parent) :
 {
     ui->setupUi(this);
 
+	setWindowTitle(tr("欢迎使用教职工信息管理系统"));
+
 	try{
 		m_DataCenter = DataCenter::instance();
 		m_accountManage = m_DataCenter->accountManageInstance();
@@ -19,6 +21,9 @@ LoginDialog::LoginDialog(QWidget *parent) :
 		QMessageBox::critical(this, tr("严重错误！"), tr("连接数据库出错！\n")+e.errorMsg());
 		::exit(1);
 	}
+
+	ui->m_Username->setText("admin");
+	ui->m_Password->setText("888888");
 
 	setupSignals();
 }
