@@ -104,8 +104,6 @@
     <property name="title">
      <string>帮助</string>
     </property>
-    <addaction name="action"/>
-    <addaction name="separator"/>
     <addaction name="m_About"/>
    </widget>
    <addaction name="menu"/>
