@@ -9,10 +9,12 @@
 #include "datacenter.h"
 #include <QSystemTrayIcon>
 
+
 namespace Ui {
     class MainWindow;
 }
 
+class TimeLabel;
 class MainWindow : public QMainWindow
 {
     Q_OBJECT
@@ -52,9 +54,12 @@ private:
 	DataCenter *m_DataCenter;
 
 	QSystemTrayIcon *m_TrayIcon;
+	TimeLabel *m_TimeLabel;
 
 private slots:
 	void onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int);
+	void setOpenIcon(QTreeWidgetItem* treeWidgetItem);
+	void setClosedIcon(QTreeWidgetItem* treeWidgetItem);
 	void exit();
 	void onTrayIconActived(QSystemTrayIcon::ActivationReason activationReason);
 
@@ -62,6 +67,7 @@ private slots:
 	void onQueryAction();
 	void onUserManage();
 	void onAbout();
+
 
 protected:
 	void closeEvent(QCloseEvent *event);

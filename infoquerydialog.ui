@@ -765,7 +765,7 @@
           <item>
            <widget class="QLabel" name="label_2">
             <property name="text">
-             <string>姓名：    </string>
+             <string>姓名(*)： </string>
             </property>
            </widget>
           </item>
@@ -1359,7 +1359,7 @@
           <item>
            <widget class="QLabel" name="label_21">
             <property name="text">
-             <string>人事号：   </string>
+             <string>人事号(*)：</string>
             </property>
            </widget>
           </item>

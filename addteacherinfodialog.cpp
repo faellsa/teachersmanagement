@@ -8,7 +8,6 @@ AddTeacherInfoDialog::AddTeacherInfoDialog(QDialog *parent) :
     ui(new Ui::AddTeacherInfoDialog)
 {
     ui->setupUi(this);
-	ui->tabWidget->setTabShape(QTabWidget::Triangular);
 	setupSignals();
 }
 
@@ -62,6 +61,11 @@ void AddTeacherInfoDialog::showRemarkPage()
 
 void AddTeacherInfoDialog::saveInfo()
 {
+	if(ui->m_Name->text().isEmpty() || ui->m_PersonnelNo->text().isEmpty())
+	{
+		QMessageBox::warning(this,tr("提示"),tr("姓名和人事号不能为空"));
+		return;
+	}
 	TeacherInfo teacherInfo;
 	teacherInfo.name = ui->m_Name->text();
 	teacherInfo.sex = ui->m_Sex->currentText();

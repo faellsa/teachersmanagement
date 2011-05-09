@@ -269,7 +269,14 @@ void InfoQueryDialog::onDeleteAction()
 {
 	int row = ui->m_QueryResult->currentIndex().row();
 
-	QModelIndex index = ui->m_QueryResult->model()->index(row,0);
+	int column;
+	for(column = 0; column != 31; column++)
+	{
+		if(m_Model->headerData(column,Qt::Horizontal).toString().compare(tr("人事号")) == 0)
+			break;
+	}
+
+	QModelIndex index = ui->m_QueryResult->model()->index(row,column);
 
 	m_PersonnelNo = index.data().toString();
 
@@ -282,6 +289,7 @@ void InfoQueryDialog::onDeleteAction()
 	}
 	else
 	{
+		QMessageBox::information(this,tr("成功"),tr("删除成功"));
 		onQueryButton();
 	}
 }
@@ -348,6 +356,12 @@ void InfoQueryDialog::showRemarkPage()
 
 void InfoQueryDialog::onOkButton()
 {
+	if(ui->m_Name->text().isEmpty() || ui->m_PersonnelNo->text().isEmpty())
+	{
+		QMessageBox::warning(this,tr("提示"),tr("姓名和人事号不能为空"));
+		return;
+	}
+
 	ui->m_TeacherInfoTab->hide();
 	ui->m_TeacherInfoTab->setCurrentIndex(0);
 	ui->m_QueryFrame->show();
