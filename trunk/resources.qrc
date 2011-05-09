@@ -4,8 +4,15 @@
         <file>image/login.jpg</file>
         <file>image/title.png</file>
         <file>image/menubar.png</file>
-        <file>mystyle.qss</file>
         <file>image/tray.ico</file>
         <file>image/login2.jpg</file>
+        <file>image/folder.gif</file>
+        <file>image/folderopen.gif</file>
+        <file>image/page.gif</file>
+        <file>image/folder.png</file>
+        <file>image/folder_closed.gif</file>
+        <file>image/tree_node.gif</file>
+        <file>image/folder_open.gif</file>
+        <file>mystyle.qss</file>
     </qresource>
 </RCC>

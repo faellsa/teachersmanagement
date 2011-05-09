@@ -20,7 +20,7 @@ QMenuBar {
 QMenuBar::item {
 	 spacing: 10px; /* 菜单栏项目空间大小 */
 	 padding: 6px 15px;
-	 font-size:16px;
+	 font-size:12px;
 	 background: transparent;
 	 color:rgb(255,255,255);
  }
@@ -34,8 +34,22 @@ QMenuBar::item:pressed {
 	  background:(255,255,255);
 	  color:rgb(0,0,0);
 
- }
+}
 
 QStatusBar {
 	background: rgb(29, 108, 167);
+}
+
+QDialog {
+	 background-color: rgb(255,255,255);
  }
+
+QSplitter::handle {
+	background-color: rgb(255,255,255);
+}
+
+QTabBar::tab {
+	height:25px;
+	width:90px;
+	font-size:13px;
+}

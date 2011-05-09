@@ -9,6 +9,7 @@
 #include "infoquerydialog.h"
 #include "QMenuBar"
 #include "QMenu"
+#include "timelabel.h"
 
 MainWindow::MainWindow(QWidget *parent) :
 		QMainWindow(parent),
@@ -54,14 +55,18 @@ void MainWindow::setupWidgets()
 
 	m_SystemManage = new QTreeWidgetItem(QStringList(tr("系统管理")));
 	m_SystemManage->setFont(0,QFont("Times",12));
+	m_SystemManage->setIcon(0,QIcon(":/image/folder_closed.gif"));
 	m_UserManagement = new QTreeWidgetItem(QStringList(tr("用户账户")), m_UserManagementType);
 	m_UserManagement->setFont(0,QFont(tr("Times"),11));
+	m_UserManagement->setIcon(0,QIcon(":/image/tree_node.gif"));
 	m_SystemManage->addChild(m_UserManagement);
 
 	m_InfoManage = new QTreeWidgetItem(QStringList(tr("教师信息管理")));
 	m_InfoManage->setFont(0,QFont("Times",12));
+	m_InfoManage->setIcon(0,QIcon(":/image/folder_closed.gif"));
 	m_AddTeacherInfo = new QTreeWidgetItem(QStringList(tr("增加记录")),m_AddTeacherInfoType);
 	m_AddTeacherInfo->setFont(0,QFont(tr("Times"), 11));
+	m_AddTeacherInfo->setIcon(0,QIcon(":/image/tree_node.gif"));
 
 	//	m_PersonalInfo = new QTreeWidgetItem(QStringList(tr("个人信息")),m_PersonalInfoType);
 	//	m_PoliticalInfo = new QTreeWidgetItem(QStringList(tr("政治面貌")));
@@ -77,6 +82,7 @@ void MainWindow::setupWidgets()
 
 	m_InfoQuery = new QTreeWidgetItem(QStringList(tr("信息查询")),m_InfoQueryType);
 	m_InfoQuery->setFont(0,QFont(tr("Times"), 11));
+	m_InfoQuery->setIcon(0,QIcon(":/image/tree_node.gif"));
 
 	m_InfoManage->addChild(m_AddTeacherInfo);
 	m_InfoManage->addChild(m_InfoQuery);
@@ -107,6 +113,11 @@ void MainWindow::setupWidgets()
 	trayIconMenu->addSeparator();
 	trayIconMenu->addAction(exitAction);
 	m_TrayIcon->setContextMenu(trayIconMenu);
+
+	m_TimeLabel = new TimeLabel(this);
+	QWidget *empty = new QWidget;
+	statusBar()->addWidget(empty,1);
+	statusBar()->addWidget(m_TimeLabel);
 }
 
 void MainWindow::setupSignals()
@@ -120,6 +131,9 @@ void MainWindow::setupSignals()
 	connect(ui->m_QueryAction,SIGNAL(triggered()),this,SLOT(onQueryAction()));
 	connect(ui->m_UserManagement,SIGNAL(triggered()),this,SLOT(onUserManage()));
 	connect(ui->m_About,SIGNAL(triggered()),this,SLOT(onAbout()));
+
+	connect(m_FunctionTree,SIGNAL(itemExpanded(QTreeWidgetItem*)),this,SLOT(setOpenIcon(QTreeWidgetItem*)));
+	connect(m_FunctionTree,SIGNAL(itemCollapsed(QTreeWidgetItem*)),this,SLOT(setClosedIcon(QTreeWidgetItem*)));
 }
 
 void MainWindow::onFunctionTreeItemClick(QTreeWidgetItem *treeWidgetItem,int)
@@ -197,4 +211,14 @@ void MainWindow::onUserManage()
 void MainWindow::onAbout()
 {
 	QMessageBox::information(this,tr("关于生命科学学院教职工信息管理系统"),tr("    生命科学学院教职工信息管理系统    "));
+}
+
+void  MainWindow::setOpenIcon(QTreeWidgetItem *treeWidgetItem)
+{
+	treeWidgetItem->setIcon(0,QIcon(":/image/folder_open.gif"));
+}
+
+void  MainWindow::setClosedIcon(QTreeWidgetItem *treeWidgetItem)
+{
+	treeWidgetItem->setIcon(0,QIcon(":/image/folder_closed.gif"));
 }

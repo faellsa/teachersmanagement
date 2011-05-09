@@ -24,7 +24,8 @@ SOURCES += main.cpp\
     infoquerydialog.cpp \
     teachersinfotable.cpp \
     exportexcelobject.cpp \
-    accountmanage.cpp
+    accountmanage.cpp \
+    timelabel.cpp
 
 HEADERS  += mainwindow.h \
     logindialog.h \
@@ -38,7 +39,8 @@ HEADERS  += mainwindow.h \
     infoquerydialog.h \
     teachersinfotable.h \
     exportexcelobject.h \
-    accountmanage.h
+    accountmanage.h \
+    timelabel.h
 
 FORMS    += mainwindow.ui \
     logindialog.ui \
