@@ -15,6 +15,7 @@
 #include <QProgressDialog>
 #include <QCheckBox>
 #include <QMap>
+#include <QPalette>
 
 InfoQueryDialog::InfoQueryDialog(QDialog *parent) :
 		ChildDialogBase(parent),
@@ -78,6 +79,11 @@ void InfoQueryDialog::setupWidgets()
 	ui->m_QueryResult->setSelectionMode(QAbstractItemView::SingleSelection);
 
 	ui->m_RankTime->hide();
+
+	QPalette pal;
+	pal.setColor(QPalette::AlternateBase,QColor(225,255,255));
+	ui->m_QueryResult->setAlternatingRowColors(true);
+	ui->m_QueryResult->setPalette(pal);
 }
 
 void InfoQueryDialog::setupSignals()
@@ -213,7 +219,6 @@ void InfoQueryDialog::onQueryButton()
 		}
 	}
 
-	qDebug()<<"queryCondition:"<<queryCondition;
 	m_Model->setQuery(queryCondition);
 
 }
@@ -362,6 +367,11 @@ void InfoQueryDialog::onOkButton()
 		return;
 	}
 
+	if(ui->m_PersonnelNo->text().size() != 8)
+	{
+		QMessageBox::warning(this,tr("提示"),tr("人事号需为8位"));
+		return;
+	}
 
 	ui->m_TeacherInfoTab->hide();
 	ui->m_TeacherInfoTab->setCurrentIndex(0);
