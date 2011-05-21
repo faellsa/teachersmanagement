@@ -49,21 +49,21 @@ class ExportExcelObject : public QObject
     Q_OBJECT
 public:
     ExportExcelObject(const QString &filepath, const QString &sheettitle,
-                      QTableView *tableview):excelFilePath(filepath),
-                      sheetName(sheettitle), tableView(tableview){};
+					  QTableView *tableview):m_ExcelFilePath(filepath),
+					  m_SheetName(sheettitle), m_TableView(tableview){};
 
     ~ExportExcelObject() {QSqlDatabase::removeDatabase("excelexport");};
 
 public:
-    void setOutputFilePath(const QString &spath) {excelFilePath = spath;};
-    void setOutputSheetTitle(const QString &ssheet) {sheetName = ssheet;};
-    void setTableView(QTableView *tableview) {tableView = tableview;};
+	void setOutputFilePath(const QString &spath) {m_ExcelFilePath = spath;};
+	void setOutputSheetTitle(const QString &ssheet) {m_SheetName = ssheet;};
+	void setTableView(QTableView *tableview) {m_TableView = tableview;};
 
     void addField(const int iCol, const QString &fieldname, const QString &fieldtype)
-         {fieldList << new EEO_Field(iCol, fieldname, fieldtype);};
+		 {m_FieldList << new EEO_Field(iCol, fieldname, fieldtype);};
 
     void removeAllFields()
-         {while (!fieldList.isEmpty()) delete fieldList.takeFirst();};
+		 {while (!m_FieldList.isEmpty()) delete m_FieldList.takeFirst();};
 
     int export2Excel();
 
@@ -71,10 +71,10 @@ signals:
     void exportedRowCount(int row);
 
 private:
-    QString excelFilePath;
-    QString sheetName;
-    QTableView *tableView;
-    QList<EEO_Field *> fieldList;
+	QString m_ExcelFilePath;
+	QString m_SheetName;
+	QTableView *m_TableView;
+	QList<EEO_Field *> m_FieldList;
 };
 
 #endif // EXPORTEXCELOBJECT_H

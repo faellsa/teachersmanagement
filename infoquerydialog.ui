@@ -89,7 +89,7 @@
            </item>
            <item>
             <property name="text">
-             <string>职称职级</string>
+             <string>职称</string>
             </property>
            </item>
            <item>
@@ -227,7 +227,7 @@
            </item>
            <item>
             <property name="text">
-             <string>职称职级</string>
+             <string>职称</string>
             </property>
            </item>
            <item>
@@ -365,7 +365,7 @@
            </item>
            <item>
             <property name="text">
-             <string>职称职级</string>
+             <string>职称</string>
             </property>
            </item>
            <item>
@@ -503,7 +503,7 @@
            </item>
            <item>
             <property name="text">
-             <string>职称职级</string>
+             <string>职称</string>
             </property>
            </item>
            <item>
@@ -641,7 +641,7 @@
            </item>
            <item>
             <property name="text">
-             <string>职称职级</string>
+             <string>职称</string>
             </property>
            </item>
            <item>
@@ -663,6 +663,19 @@
           <widget class="QComboBox" name="m_ConditionComboBox5"/>
          </item>
          <item>
+          <widget class="QPushButton" name="m_AddCondition5">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QPushButton" name="m_DelCondition5">
            <property name="maximumSize">
             <size>
@@ -677,6 +690,407 @@
          </item>
          <item>
           <spacer name="horizontalSpacer_10">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame6">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_44">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_33">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType6">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit6"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox6"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition6">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition6">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_34">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame7">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_45">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_35">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType7">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit7"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox7"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_AddCondition7">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>增加条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition7">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_36">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QFrame" name="m_ConditionFrame8">
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Raised</enum>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_46">
+         <property name="margin">
+          <number>0</number>
+         </property>
+         <item>
+          <spacer name="horizontalSpacer_37">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeType">
+            <enum>QSizePolicy::Fixed</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>66</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionType8">
+           <property name="maxVisibleItems">
+            <number>20</number>
+           </property>
+           <item>
+            <property name="text">
+             <string>请选择</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>姓名</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>性别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>类别</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>人事号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>所在专业</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>身份证号</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>政治面貌</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>职称</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>行政兼职</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>研究生培养</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="m_ConditionEdit8"/>
+         </item>
+         <item>
+          <widget class="QComboBox" name="m_ConditionComboBox8"/>
+         </item>
+         <item>
+          <widget class="QPushButton" name="m_DelCondition8">
+           <property name="maximumSize">
+            <size>
+             <width>70</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>删除条件</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer_38">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
@@ -744,19 +1158,32 @@
    <item>
     <widget class="QTabWidget" name="m_TeacherInfoTab">
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="tab">
       <attribute name="title">
        <string>个人信息</string>
       </attribute>
+      <widget class="QPushButton" name="m_Page1Next">
+       <property name="geometry">
+        <rect>
+         <x>299</x>
+         <y>331</y>
+         <width>75</width>
+         <height>23</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string>下一步</string>
+       </property>
+      </widget>
       <widget class="QWidget" name="layoutWidget">
        <property name="geometry">
         <rect>
-         <x>60</x>
-         <y>40</y>
-         <width>271</width>
-         <height>261</height>
+         <x>61</x>
+         <y>41</y>
+         <width>298</width>
+         <height>251</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -852,19 +1279,6 @@
            </widget>
           </item>
           <item>
-           <widget class="QLabel" name="label_11">
-            <property name="maximumSize">
-             <size>
-              <width>16777215</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>（不超过5个汉字）    </string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <spacer name="horizontalSpacer_13">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
@@ -891,7 +1305,7 @@
           <item>
            <widget class="QDateEdit" name="m_Birthday">
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
@@ -945,6 +1359,33 @@
          </layout>
         </item>
         <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_36">
+          <item>
+           <widget class="QLabel" name="label_28">
+            <property name="text">
+             <string>人事号(*)： </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="m_PersonnelNo"/>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_16">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
          <layout class="QHBoxLayout" name="horizontalLayout_12">
           <item>
            <widget class="QLabel" name="label_7">
@@ -959,19 +1400,6 @@
          </layout>
         </item>
        </layout>
-      </widget>
-      <widget class="QPushButton" name="m_Page1Next">
-       <property name="geometry">
-        <rect>
-         <x>299</x>
-         <y>331</y>
-         <width>75</width>
-         <height>23</height>
-        </rect>
-       </property>
-       <property name="text">
-        <string>下一页</string>
-       </property>
       </widget>
      </widget>
      <widget class="QWidget" name="tab_2">
@@ -1058,6 +1486,11 @@
               <string>无党派民主人士</string>
              </property>
             </item>
+            <item>
+             <property name="text">
+              <string>群众</string>
+             </property>
+            </item>
            </widget>
           </item>
          </layout>
@@ -1074,7 +1507,7 @@
           <item>
            <widget class="QDateEdit" name="m_PartyTime">
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
@@ -1095,12 +1528,12 @@
         <item>
          <widget class="QPushButton" name="m_Page2Pre">
           <property name="text">
-           <string>上一页</string>
+           <string>上一步</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_16">
+         <spacer name="horizontalSpacer_17">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1115,7 +1548,7 @@
         <item>
          <widget class="QPushButton" name="m_Page2Next">
           <property name="text">
-           <string>下一页</string>
+           <string>下一步</string>
           </property>
          </widget>
         </item>
@@ -1139,12 +1572,12 @@
         <item>
          <widget class="QPushButton" name="m_Page3Pre">
           <property name="text">
-           <string>上一页</string>
+           <string>上一步</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_17">
+         <spacer name="horizontalSpacer_18">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1159,7 +1592,7 @@
         <item>
          <widget class="QPushButton" name="m_Page3Next">
           <property name="text">
-           <string>下一页</string>
+           <string>下一步</string>
           </property>
          </widget>
         </item>
@@ -1296,20 +1729,23 @@
         <item row="0" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_19">
           <item>
-           <spacer name="horizontalSpacer_18">
+           <spacer name="horizontalSpacer_19">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>40</width>
+              <width>30</width>
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="label_12">
+           <widget class="QLabel" name="label_11">
             <property name="text">
              <string>类别：</string>
             </property>
@@ -1357,72 +1793,14 @@
         <item row="1" column="0">
          <layout class="QHBoxLayout" name="horizontalLayout_20">
           <item>
-           <widget class="QLabel" name="label_21">
-            <property name="text">
-             <string>人事号(*)：</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="m_PersonnelNo"/>
-          </item>
-          <item>
            <widget class="QLabel" name="label_34">
             <property name="text">
-             <string>（8位数字）</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <layout class="QHBoxLayout" name="horizontalLayout_21">
-          <item>
-           <spacer name="horizontalSpacer_20">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QLabel" name="label_22">
-            <property name="text">
-             <string>任现职时间：</string>
+             <string>职称：</string>
             </property>
            </widget>
           </item>
           <item>
-           <widget class="QDateEdit" name="m_CurrentPositionTime">
-            <property name="maximumSize">
-             <size>
-              <width>70</width>
-              <height>16777215</height>
-             </size>
-            </property>
-            <property name="displayFormat">
-             <string>yyyy/M</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="2" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_23">
-          <item>
-           <widget class="QLabel" name="label_23">
-            <property name="text">
-             <string>职称/职级：</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QLineEdit" name="m_TitleAndRank">
+           <widget class="QLineEdit" name="m_Title">
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -1447,19 +1825,111 @@
             </property>
             <property name="maximumSize">
              <size>
-              <width>65</width>
+              <width>90</width>
               <height>16777215</height>
              </size>
             </property>
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="1" column="1">
+         <layout class="QHBoxLayout" name="horizontalLayout_21">
+          <item>
+           <spacer name="horizontalSpacer_20">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>30</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_22">
+            <property name="text">
+             <string>任现职时间：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="m_CurrentPositionTime">
+            <property name="minimumSize">
+             <size>
+              <width>90</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>70</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy-M-d</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="2" column="0">
+         <layout class="QHBoxLayout" name="horizontalLayout_23">
+          <item>
+           <widget class="QLabel" name="label_23">
+            <property name="text">
+             <string>职级：</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="m_Rank">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>16777215</width>
+              <height>16777215</height>
+             </size>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QDateEdit" name="m_RankTime">
+            <property name="minimumSize">
+             <size>
+              <width>65</width>
+              <height>0</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>90</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="displayFormat">
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
          </layout>
         </item>
         <item row="2" column="1">
-         <spacer name="horizontalSpacer_19">
+         <spacer name="horizontalSpacer_23">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1532,8 +2002,8 @@
         <rect>
          <x>60</x>
          <y>303</y>
-         <width>397</width>
-         <height>81</height>
+         <width>501</width>
+         <height>111</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_10">
@@ -1552,17 +2022,17 @@
              <widget class="QComboBox" name="m_GraduateTrain">
               <item>
                <property name="text">
-                <string>无</string>
-               </property>
-              </item>
-              <item>
-               <property name="text">
                 <string>硕导</string>
                </property>
               </item>
               <item>
                <property name="text">
                 <string>博导</string>
+               </property>
+              </item>
+              <item>
+               <property name="text">
+                <string>无</string>
                </property>
               </item>
              </widget>
@@ -1594,7 +2064,7 @@
             <item>
              <widget class="QDateEdit" name="m_TeacherTime">
               <property name="displayFormat">
-               <string>yyyy/M</string>
+               <string>yyyy-M-d</string>
               </property>
              </widget>
             </item>
@@ -1629,6 +2099,20 @@
           </item>
          </layout>
         </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_37">
+          <item>
+           <widget class="QLabel" name="label_16">
+            <property name="text">
+             <string>荣誉称号：      </string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="m_Honour"/>
+          </item>
+         </layout>
+        </item>
        </layout>
       </widget>
      </widget>
@@ -1649,12 +2133,12 @@
         <item>
          <widget class="QPushButton" name="m_Page4Pre">
           <property name="text">
-           <string>上一页</string>
+           <string>上一步</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_23">
+         <spacer name="horizontalSpacer_26">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -1669,7 +2153,7 @@
         <item>
          <widget class="QPushButton" name="m_Page4Next">
           <property name="text">
-           <string>下一页</string>
+           <string>下一步</string>
           </property>
          </widget>
         </item>
@@ -1679,9 +2163,9 @@
        <property name="geometry">
         <rect>
          <x>61</x>
-         <y>172</y>
+         <y>168</y>
          <width>291</width>
-         <height>111</height>
+         <height>121</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -1710,12 +2194,12 @@
           <item>
            <widget class="QDateEdit" name="m_FirstWorkTime">
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_26">
+           <spacer name="horizontalSpacer_27">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -1755,12 +2239,12 @@
           <item>
            <widget class="QDateEdit" name="m_WhuTime">
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_27">
+           <spacer name="horizontalSpacer_28">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -1854,7 +2338,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_6">
         <item>
-         <widget class="QLabel" name="label_13">
+         <widget class="QLabel" name="label_12">
           <property name="maximumSize">
            <size>
             <width>16777215</width>
@@ -1873,7 +2357,7 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_28">
               <item>
-               <widget class="QLabel" name="label_14">
+               <widget class="QLabel" name="label_13">
                 <property name="text">
                  <string>本科：      </string>
                 </property>
@@ -1882,7 +2366,7 @@
               <item>
                <widget class="QDateEdit" name="m_BachelorTime">
                 <property name="displayFormat">
-                 <string>yyyy/M</string>
+                 <string>yyyy-M-d</string>
                 </property>
                </widget>
               </item>
@@ -1891,7 +2375,7 @@
             <item>
              <layout class="QHBoxLayout" name="horizontalLayout_29">
               <item>
-               <spacer name="horizontalSpacer_28">
+               <spacer name="horizontalSpacer_29">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
                 </property>
@@ -1904,7 +2388,7 @@
                </spacer>
               </item>
               <item>
-               <widget class="QLabel" name="label_15">
+               <widget class="QLabel" name="label_14">
                 <property name="text">
                  <string>硕士研究生：</string>
                 </property>
@@ -1913,7 +2397,7 @@
               <item>
                <widget class="QDateEdit" name="m_MasterTime">
                 <property name="displayFormat">
-                 <string>yyyy/M</string>
+                 <string>yyyy-M-d</string>
                 </property>
                </widget>
               </item>
@@ -1922,9 +2406,9 @@
            </layout>
           </item>
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout_36">
+           <layout class="QHBoxLayout" name="horizontalLayout_38">
             <item>
-             <widget class="QLabel" name="label_16">
+             <widget class="QLabel" name="label_15">
               <property name="text">
                <string>博士研究生：</string>
               </property>
@@ -1933,12 +2417,12 @@
             <item>
              <widget class="QDateEdit" name="m_DoctorTime">
               <property name="displayFormat">
-               <string>yyyy/M</string>
+               <string>yyyy-M-d</string>
               </property>
              </widget>
             </item>
             <item>
-             <spacer name="horizontalSpacer_29">
+             <spacer name="horizontalSpacer_30">
               <property name="orientation">
                <enum>Qt::Horizontal</enum>
               </property>
@@ -1970,16 +2454,16 @@
          <height>25</height>
         </rect>
        </property>
-       <layout class="QHBoxLayout" name="horizontalLayout_37">
+       <layout class="QHBoxLayout" name="horizontalLayout_39">
         <item>
          <widget class="QPushButton" name="m_Page5Pre">
           <property name="text">
-           <string>上一页</string>
+           <string>上一步</string>
           </property>
          </widget>
         </item>
         <item>
-         <spacer name="horizontalSpacer_30">
+         <spacer name="horizontalSpacer_31">
           <property name="orientation">
            <enum>Qt::Horizontal</enum>
           </property>
@@ -2011,7 +2495,7 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_7">
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_38">
+         <layout class="QHBoxLayout" name="horizontalLayout_40">
           <item>
            <widget class="QLabel" name="label_24">
             <property name="text">
@@ -2022,12 +2506,12 @@
           <item>
            <widget class="QDateEdit" name="m_RetirementTime">
             <property name="displayFormat">
-             <string>yyyy/M</string>
+             <string>yyyy-M-d</string>
             </property>
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_31">
+           <spacer name="horizontalSpacer_32">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -2042,7 +2526,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_39">
+         <layout class="QHBoxLayout" name="horizontalLayout_41">
           <item>
            <widget class="QLabel" name="label_25">
             <property name="text">
@@ -2056,7 +2540,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_40">
+         <layout class="QHBoxLayout" name="horizontalLayout_42">
           <item>
            <widget class="QLabel" name="label_26">
             <property name="text">
@@ -2070,7 +2554,7 @@
          </layout>
         </item>
         <item>
-         <layout class="QHBoxLayout" name="horizontalLayout_41">
+         <layout class="QHBoxLayout" name="horizontalLayout_43">
           <item>
            <widget class="QLabel" name="label_27">
             <property name="text">
@@ -2281,6 +2765,150 @@
     <hint type="destinationlabel">
      <x>341</x>
      <y>144</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_AddCondition5</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame6</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>155</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_AddCondition6</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame7</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_AddCondition7</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame8</receiver>
+   <slot>show()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>470</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition6</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame6</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>186</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition7</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame7</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>217</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition8</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionFrame8</receiver>
+   <slot>hide()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>508</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>388</x>
+     <y>248</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition6</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionEdit6</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>186</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>185</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition7</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionEdit7</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>546</x>
+     <y>217</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>269</x>
+     <y>216</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>m_DelCondition8</sender>
+   <signal>clicked()</signal>
+   <receiver>m_ConditionEdit8</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>508</x>
+     <y>248</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>288</x>
+     <y>247</y>
     </hint>
    </hints>
   </connection>

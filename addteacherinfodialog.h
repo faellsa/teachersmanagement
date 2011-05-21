@@ -16,7 +16,6 @@ public:
 	AddTeacherInfoDialog(QDialog *parent = 0);
 	~AddTeacherInfoDialog();
 	void setOnlyRead();
-	void setTeachersInfo(TeacherInfo &teacherInfo);
 
 private:
     Ui::AddTeacherInfoDialog *ui;
@@ -29,6 +28,8 @@ private slots:
 	void showPersonalExperiencePage();
 	void showRemarkPage();
 	void saveInfo();
+	void onPoliticsStatus(QString politicsStatus);
+	void onGraduateTrain(QString graduateTrain);
 };
 
 #endif // ADDTEACHERINFODIALOG_H

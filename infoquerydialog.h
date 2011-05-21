@@ -29,6 +29,8 @@ private:
 	TeacherInfo *m_TeacherInfo;
 	QString m_PersonnelNo;
 
+	static const int attributeNum = 33;
+
 	void setupWidgets();
 	void setupSignals();
 	void setTeachersInfo(TeacherInfo &teacherInfo);
@@ -47,6 +49,9 @@ private slots:
 	void onExportExcel();
 	//void onShowDetail(Qt::CheckState checkeState);
 	void isShowDetail(int checkeState);
+	void onPoliticsStatus(QString politicsStatus);
+	void onGraduateTrain(QString graduateTrain);
+
 
 };
 
