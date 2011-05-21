@@ -18,11 +18,14 @@ struct TeacherInfo
 	QString department;
 	QString category;
 	QString personnelNo;
-	QString titleAndRank;
+	QString title;
 	QString titleTime;
+	QString rank;
+	//QString rankTime;
 	QString currentPositionTime;
 	QString academicParttime;
 	QString personnelPlan;
+	QString honour;
 	QString administrationParttime;
 	QString otherParttime;
 	QString graduateTrain;

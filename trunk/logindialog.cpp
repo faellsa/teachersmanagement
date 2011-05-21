@@ -22,8 +22,8 @@ LoginDialog::LoginDialog(QWidget *parent) :
 		::exit(1);
 	}
 
-//	ui->m_Username->setText("admin");
-//	ui->m_Password->setText("888888");
+	ui->m_Username->setText("admin");
+	ui->m_Password->setText("888888");
 
 	setupSignals();
 }

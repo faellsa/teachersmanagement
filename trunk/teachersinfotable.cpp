@@ -18,6 +18,7 @@ void TeachersInfoTable::createTable()
 {
 	QSqlQuery query(m_Database);
 	QString createTableSql = QObject::tr("CREATE TABLE TeachersInfo("
+										 "人事号 varchar(8) not null,"
 										 "姓名 varchar(MAX),"
 										 "性别 varchar(MAX),"
 										 "民族 varchar(MAX),"
@@ -27,13 +28,15 @@ void TeachersInfoTable::createTable()
 										 "政治面貌 varchar(MAX),"
 										 "入党时间 varchar(MAX),"
 										 "所在专业 varchar(MAX),"
-										 "类别 varchar(MAX),"
-										 "人事号 varchar(8) not null,"
-										 "职称职级 varchar(MAX),"
-										 "职称职级时间 varchar(MAX),"
+										 "类别 varchar(MAX),"										 
+										 "职称 varchar(MAX),"
+										 "职称晋升时间 varchar(MAX),"
+										 "职级 varchar(MAX),"
+										 //"职级晋升时间 varchar(MAX),"
 										 "任现职时间 varchar(MAX),"
 										 "学术兼职情况 varchar(MAX),"
 										 "获人才计划情况 varchar(MAX),"
+										 "荣誉称号 varchar(MAX),"
 										 "行政兼职 varchar(MAX),"
 										 "其他兼职 varchar(MAX),"
 										 "研究生培养 varchar(MAX),"
@@ -52,7 +55,7 @@ void TeachersInfoTable::createTable()
 										 "PRIMARY KEY(人事号))");
 	if(!query.exec(createTableSql))
 	{
-		//qDebug()<<"create failed.";
+		qDebug()<<"create failed.";
 	}
 }
 
@@ -62,7 +65,8 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 								"'%1','%2','%3','%4','%5','%6','%7','%8','%9','%10',"
 								"'%11','%12','%13','%14','%15','%16','%17','%18','%19',"
 								"'%20','%21','%22','%23','%24','%25','%26','%27','%28',"
-								"'%29','%30','%31')")
+								"'%29','%30','%31','%32','%33')")
+			.arg(teacherInfo.personnelNo)
 			.arg(teacherInfo.name)
 			.arg(teacherInfo.sex)
 			.arg(teacherInfo.nationality)
@@ -72,13 +76,15 @@ bool TeachersInfoTable::newTeacherInfo(const TeacherInfo &teacherInfo)
 			.arg(teacherInfo.politicsStatus)
 			.arg(teacherInfo.partyTime)
 			.arg(teacherInfo.department)
-			.arg(teacherInfo.category)
-			.arg(teacherInfo.personnelNo)
-			.arg(teacherInfo.titleAndRank)
+			.arg(teacherInfo.category)			
+			.arg(teacherInfo.title)
 			.arg(teacherInfo.titleTime)
+			.arg(teacherInfo.rank)
+			//.arg(teacherInfo.rankTime)
 			.arg(teacherInfo.currentPositionTime)
 			.arg(teacherInfo.academicParttime)
 			.arg(teacherInfo.personnelPlan)
+			.arg(teacherInfo.honour)
 			.arg(teacherInfo.administrationParttime)
 			.arg(teacherInfo.otherParttime)
 			.arg(teacherInfo.graduateTrain)
@@ -132,11 +138,14 @@ bool TeachersInfoTable::queryTeacherInfo(QString conditionType, QString conditio
 		teacherInfo->department = record.value(QObject::tr("所在专业")).toString();
 		teacherInfo->category = record.value(QObject::tr("类别")).toString();
 		teacherInfo->personnelNo = record.value(QObject::tr("人事号")).toString();
-		teacherInfo->titleAndRank = record.value(QObject::tr("职称职级")).toString();
-		teacherInfo->titleTime = record.value(QObject::tr("职称职级时间")).toString();
+		teacherInfo->title = record.value(QObject::tr("职称")).toString();
+		teacherInfo->titleTime = record.value(QObject::tr("职称时间")).toString();
+		teacherInfo->rank = record.value(QObject::tr("职级")).toString();
+		//teacherInfo->rankTime = record.value(QObject::tr("职级时间")).toString();
 		teacherInfo->currentPositionTime = record.value(QObject::tr("任现职时间")).toString();
 		teacherInfo->academicParttime = record.value(QObject::tr("学术兼职情况")).toString();
 		teacherInfo->personnelPlan = record.value(QObject::tr("获人才计划情况")).toString();
+		teacherInfo->honour = record.value(QObject::tr("荣誉称号")).toString();
 		teacherInfo->administrationParttime = record.value(QObject::tr("行政兼职")).toString();
 		teacherInfo->otherParttime = record.value(QObject::tr("其他兼职")).toString();
 		teacherInfo->graduateTrain = record.value(QObject::tr("研究生培养")).toString();
