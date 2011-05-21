@@ -70,6 +70,12 @@ void AddTeacherInfoDialog::saveInfo()
 		QMessageBox::warning(this,tr("提示"),tr("姓名和人事号不能为空"));
 		return;
 	}
+
+	if(ui->m_PersonnelNo->text().size() != 8)
+	{
+		QMessageBox::warning(this,tr("提示"),tr("人事号需为8位"));
+		return;
+	}
 	TeacherInfo teacherInfo;
 	teacherInfo.name = ui->m_Name->text();
 	teacherInfo.sex = ui->m_Sex->currentText();
